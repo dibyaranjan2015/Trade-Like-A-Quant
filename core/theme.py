@@ -1,8 +1,8 @@
 """
 core/theme.py
-Shared visual brand + mobile-friendly layout helpers for every page in the app.
-Import and call inject_base_css() + render_sidebar_brand() at the top of Home.py
-and every file in pages/ so the whole site looks and behaves like one product.
+Shared visual identity for every page: color system, typography, Plotly
+template, and the CSS that gives the site an actual design instead of
+default-Streamlit gray boxes.
 """
 
 import plotly.graph_objects as go
@@ -10,17 +10,20 @@ import plotly.io as pio
 import streamlit as st
 
 DARK_BG = "#0a0e1a"
-PANEL_BG = "#111827"
+PANEL_BG = "#11162280"
+PANEL_BORDER = "#1f2937"
 
-LINEAR_ALGEBRA = "#00e5ff"   # cyan
-CALCULUS = "#a855f7"         # purple
-PROBABILITY = "#22c55e"      # green
-QUANT_FINANCE = "#f97316"    # orange
+LINEAR_ALGEBRA = "#00e5ff"
+CALCULUS = "#a855f7"
+PROBABILITY = "#22c55e"
+QUANT_FINANCE = "#f97316"
 
-TEXT_PRIMARY = "#e5e7eb"
-TEXT_MUTED = "#9ca3af"
+TEXT_PRIMARY = "#e7e9ee"
+TEXT_MUTED = "#8b93a7"
 GRID_LINE = "#1f2937"
-FONT_FAMILY = "Inter, -apple-system, sans-serif"
+
+HEADING_FONT = "'Space Grotesk', 'Inter', sans-serif"
+BODY_FONT = "'Inter', -apple-system, sans-serif"
 
 PILLAR_COLORS = {
     "Linear Algebra": LINEAR_ALGEBRA,
@@ -33,13 +36,13 @@ PILLAR_COLORS = {
 def build_plotly_template() -> go.layout.Template:
     template = go.layout.Template()
     template.layout = go.Layout(
-        paper_bgcolor=DARK_BG,
-        plot_bgcolor=DARK_BG,
-        font=dict(family=FONT_FAMILY, color=TEXT_PRIMARY, size=14),
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(family=BODY_FONT, color=TEXT_PRIMARY, size=13),
         xaxis=dict(gridcolor=GRID_LINE, zerolinecolor=GRID_LINE, color=TEXT_MUTED),
         yaxis=dict(gridcolor=GRID_LINE, zerolinecolor=GRID_LINE, color=TEXT_MUTED),
         legend=dict(bgcolor="rgba(0,0,0,0)"),
-        margin=dict(l=40, r=20, t=50, b=40),
+        margin=dict(l=40, r=20, t=40, b=40),
     )
     return template
 
@@ -48,39 +51,95 @@ pio.templates["quant_dark"] = build_plotly_template()
 
 
 def inject_base_css():
-    """Call once per page (top of file, right after st.set_page_config).
-    Makes tap targets bigger, text readable, and cards stack cleanly on phones —
-    since many mobile users never open the sidebar at all.
-    """
+    """Call once per page, right after st.set_page_config()."""
     st.markdown(
         f"""
         <style>
-        /* Bigger, thumb-friendly tap targets everywhere */
-        button, a[data-testid="stPageLink-NavLink"] {{
-            min-height: 48px !important;
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+        html, body, [class*="css"] {{
+            font-family: {BODY_FONT};
+        }}
+        h1, h2, h3 {{
+            font-family: {HEADING_FONT} !important;
+            letter-spacing: -0.01em;
         }}
 
-        /* Page links rendered as branded cards */
+        .hero-title {{
+            font-family: {HEADING_FONT};
+            font-weight: 700;
+            font-size: 2.4rem;
+            background: linear-gradient(90deg, {LINEAR_ALGEBRA}, {PROBABILITY});
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0;
+        }}
+        .hero-subtitle {{
+            color: {TEXT_MUTED};
+            font-size: 1.05rem;
+            margin-top: 6px;
+            line-height: 1.5;
+        }}
+
+        .concept-panel {{
+            background: {PANEL_BG};
+            border: 1px solid {PANEL_BORDER};
+            border-radius: 14px;
+            padding: 20px 22px;
+            margin-bottom: 14px;
+        }}
+        .concept-panel h4 {{
+            margin-top: 0;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: {TEXT_MUTED};
+            font-weight: 600;
+        }}
+        .concept-panel p {{
+            color: {TEXT_PRIMARY};
+            line-height: 1.65;
+            font-size: 1rem;
+        }}
+
         a[data-testid="stPageLink-NavLink"] {{
             background-color: {PANEL_BG} !important;
-            border: 1px solid {GRID_LINE} !important;
+            border: 1px solid {PANEL_BORDER} !important;
             border-radius: 12px !important;
-            padding: 14px 16px !important;
-            margin-bottom: 8px !important;
+            padding: 14px 18px !important;
+            margin-bottom: 10px !important;
+            transition: border-color 0.15s ease;
         }}
         a[data-testid="stPageLink-NavLink"]:hover {{
             border-color: {LINEAR_ALGEBRA} !important;
         }}
+        a[data-testid="stPageLink-NavLink"] p {{
+            font-family: {HEADING_FONT} !important;
+            font-weight: 500 !important;
+        }}
 
-        /* Shrink top padding on mobile so content starts higher */
+        [data-testid="stMetric"] {{
+            background: {PANEL_BG};
+            border: 1px solid {PANEL_BORDER};
+            border-radius: 12px;
+            padding: 14px 16px;
+        }}
+        [data-testid="stMetricLabel"] {{
+            color: {TEXT_MUTED} !important;
+        }}
+
+        hr {{
+            border-color: {PANEL_BORDER} !important;
+        }}
+
         @media (max-width: 640px) {{
             .block-container {{
-                padding-top: 1.5rem !important;
+                padding-top: 1.25rem !important;
                 padding-left: 1rem !important;
                 padding-right: 1rem !important;
             }}
-            h1 {{ font-size: 1.6rem !important; }}
-            h2 {{ font-size: 1.25rem !important; }}
+            .hero-title {{ font-size: 1.8rem; }}
+            .hero-subtitle {{ font-size: 0.95rem; }}
         }}
         </style>
         """,
@@ -89,12 +148,18 @@ def inject_base_css():
 
 
 def render_sidebar_brand():
-    """Sidebar is kept for branding + Streamlit's auto page list (desktop users rely
-    on it), but nothing important is EVER sidebar-only — see nav cards on Home.py."""
     with st.sidebar:
         st.markdown(
-            f"<h2 style='color:{LINEAR_ALGEBRA}; margin-bottom:0;'>ThefacelessQuant</h2>"
-            f"<p style='color:{TEXT_MUTED}; margin-top:0;'>Learn a quant daily 📈</p>"
-            "<hr>",
+            f"<div style='font-family:{HEADING_FONT}; font-weight:700; "
+            f"font-size:1.3rem; color:{LINEAR_ALGEBRA};'>ThefacelessQuant</div>"
+            f"<p style='color:{TEXT_MUTED}; font-size:0.85rem; margin-top:2px;'>"
+            "A daily study of quantitative finance</p><hr>",
             unsafe_allow_html=True,
         )
+
+
+def concept_panel(heading: str, body_html: str):
+    st.markdown(
+        f"<div class='concept-panel'><h4>{heading}</h4>{body_html}</div>",
+        unsafe_allow_html=True,
+    )

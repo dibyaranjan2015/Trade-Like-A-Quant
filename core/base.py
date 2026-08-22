@@ -1,40 +1,41 @@
 """
 core/base.py
-Shared interface for every daily QuantConcept class in the #ThefacelessQuant series.
-No Streamlit imports here on purpose — core/ is pure logic, pages/ is UI only.
+Shared interface for every daily QuantConcept class. content() replaces the
+old single-paragraph explain() — it returns separate sections (definition,
+formulas, worked example, real-world use) so each page can render them as
+distinct, well-typeset panels instead of a wall of text.
 """
 
 from abc import ABC, abstractmethod
 
 
 class QuantConcept(ABC):
-    """Base class every daily concept implements."""
 
     name: str = "Unnamed Concept"
     day: int = 0
-    pillar: str = ""          # "Linear Algebra" | "Calculus" | "Probability & Stats" | "Quant Finance"
+    pillar: str = ""
     week: int = 0
-    icon: str = "📊"           # used on Home.py cards + sidebar page label
 
     @abstractmethod
-    def explain(self) -> str:
-        """One-paragraph intuition + formula + why it matters. Doubles as IG caption."""
+    def content(self) -> dict:
+        """
+        Returns:
+        {
+            "tagline": short one-line summary for nav cards,
+            "definition": plain-language definition, 2-4 sentences,
+            "formulas": [(label, latex_string), ...]  # latex without $ delimiters
+            "example": a fully worked numeric example, with real figures,
+            "application": how this shows up in real quant/trading work,
+        }
+        """
         raise NotImplementedError
 
     @abstractmethod
     def compute(self, *args, **kwargs):
-        """Core math, run on real or synthetic market data. Returns a dict/result."""
+        """Runs the underlying math on user-adjustable or default inputs."""
         raise NotImplementedError
 
     @abstractmethod
     def visualize(self, *args, **kwargs):
-        """Returns a Plotly figure, styled with the shared brand theme (core/theme.py)."""
+        """Returns a Plotly figure using the shared 'quant_dark' template."""
         raise NotImplementedError
-
-    def demo(self):
-        """Quick local test: explain -> compute -> visualize (no Streamlit needed)."""
-        print(f"Day {self.day}: {self.name}\n")
-        print(self.explain())
-        result = self.compute()
-        fig = self.visualize()
-        return result, fig
