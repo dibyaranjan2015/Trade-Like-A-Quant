@@ -7,7 +7,7 @@ import yfinance as yf
 st.set_page_config(page_title="Day 1: Vectors & Scalars", page_icon="📐", layout="wide")
 
 with st.sidebar:
-    st.markdown("### 👨‍💻 Built by The Faceless Quant")
+    st.markdown("### Built by The Faceless Quant")
     st.markdown(
         "Bridging the gap between code and markets. \n\n"
         "Catch my latest Python & Quant Finance tutorials below:"
@@ -21,14 +21,14 @@ with st.sidebar:
     st.markdown("**Sprint:** Linear Algebra (Day 1 / 14)")
 # -----------------------------------
 
-st.title("📐 Day 1: Vectors, Scalars & Capital Allocation")
+st.title("Day 1: Vectors, Scalars & Capital Allocation")
 st.markdown("### *Linear Algebra Foundation for Quantitative Trading*")
 
 # ==========================================
 # SECTION 1: THE CONCEPT (EDUCATIONAL CORE)
 # ==========================================
 st.markdown("---")
-st.subheader("1. 🧠 Theoretical Foundation")
+st.subheader("1.Theoretical Foundation")
 
 col_theory1, col_theory2 = st.columns(2)
 
@@ -62,7 +62,7 @@ with st.expander("📚 Why don't Quants use simple loops?"):
 # SECTION 2: LIVE MARKET DATA & INTERACTIVE MATH
 # ==========================================
 st.markdown("---")
-st.subheader("2. 📊 Live NSE Data & Mathematical Scaling")
+st.subheader("2.Live NSE Data & Mathematical Scaling")
 
 col_t1, col_t2, col_t3 = st.columns(3)
 t1 = col_t1.text_input("Asset 1 (X-Axis)", value="RELIANCE.NS")
@@ -102,7 +102,7 @@ if st.session_state['data_fetched']:
     # SECTION 3: 3D VECTOR VISUALIZATION
     # ==========================================
     st.markdown("---")
-    st.subheader("3. 🌐 3D Vector Space Visualization")
+    st.subheader("3.3D Vector Space Visualization")
     
     fig = go.Figure()
     
@@ -153,7 +153,7 @@ if st.session_state['data_fetched']:
 # SECTION 4: INTERVIEW KNOWLEDGE CHECK
 # ==========================================
 st.markdown("---")
-st.subheader("4. 🎯 Quant Interview Concept Check")
+st.subheader("4.Quant Interview Concept Check")
 
 quiz_option = st.radio(
     "**Question:** If vector $\mathbf{v}$ represents daily percentage returns of 3 stocks, what does multiplying by scalar $C = -1$ physically represent in quantitative finance?",
