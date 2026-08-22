@@ -50,7 +50,7 @@ with col_theory2:
     * Each dimension corresponds to an individual asset's return.
     """)
 
-with st.expander("📚 Why don't Quants use simple loops?"):
+with st.expander(" Why don't Quants use simple loops?"):
     st.write("""
     Amateur coders loop through stocks one by one (`for stock in portfolio:`). 
     Quants treat the entire market as a single vector $\mathbf{v} \in \mathbb{R}^n$. 
