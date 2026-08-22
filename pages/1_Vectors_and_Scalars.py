@@ -6,17 +6,18 @@ import yfinance as yf
 # Page Configuration
 st.set_page_config(page_title="Day 1: Vectors & Scalars", page_icon="📐", layout="wide")
 
-# --- BRANDING & IDENTITY SNIPPET ---
 with st.sidebar:
-    st.markdown("### 👨‍💻 Built by Dibyaranjan")
+    st.markdown("### 👨‍💻 Built by The Faceless Quant")
     st.markdown(
         "Bridging the gap between code and markets. \n\n"
         "Catch my latest Python & Quant Finance tutorials below:"
     )
-    # Using the new professional handle strategy
-    st.link_button("📱 Follow The Quant Mentor", "https://instagram.com/your-handle")
-    st.link_button("🤝 Connect on LinkedIn", "https://linkedin.com/in/your-profile-url")
+    
+    # Using your actual Instagram handle
+    st.link_button("📱 Follow @TheFacelessQuant", "https://instagram.com/thefacelessquant")
+    st.link_button("🤝 Connect on LinkedIn", "https://www.linkedin.com/in/drs2015/")
     st.divider()
+# -----------------------------------
     st.markdown("**Sprint:** Linear Algebra (Day 1 / 14)")
 # -----------------------------------
 
