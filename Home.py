@@ -1,55 +1,75 @@
+"""
+Home.py
+#ThefacelessQuant — Home / landing page.
+
+IMPORTANT: this page is the primary navigation, not the sidebar. Many mobile
+visitors land here from an Instagram bio link and never tap the hamburger
+menu — so every day's app must be reachable as a big tappable card right here.
+The sidebar (see core/theme.render_sidebar_brand) still shows the auto page
+list for desktop users, but nothing is ever sidebar-only.
+"""
+
 import streamlit as st
 
-# Page Config must be the first Streamlit command
+from core import theme
+from core.registry import REGISTRY, get_by_week
+
 st.set_page_config(
-    page_title="The Faceless Quant",
+    page_title="ThefacelessQuant",
     page_icon="📈",
-    layout="wide"
+    layout="centered",          # centered = single readable column, best on mobile
+    initial_sidebar_state="collapsed",  # don't rely on it being open
+)
+theme.inject_base_css()
+theme.render_sidebar_brand()
+
+st.markdown(
+    f"""
+    <h1 style='color:{theme.LINEAR_ALGEBRA}; margin-bottom:0;'>ThefacelessQuant</h1>
+    <p style='color:{theme.TEXT_MUTED}; margin-top:4px;'>
+        Learn a quant concept a day — Math → Code → Visual → Reel.<br>
+        40 days, 4 pillars, 6 real projects.
+    </p>
+    """,
+    unsafe_allow_html=True,
 )
 
-# --- BRANDING & IDENTITY SNIPPET ---
-with st.sidebar:
-    st.markdown("### 👨‍💻 Built by The Faceless Quant")
-    st.markdown(
-        "Bridging the gap between code and markets. \n\n"
-        "Catch my latest Python & Quant Finance tutorials below:"
-    )
-    
-    # Using your actual Instagram handle
-    st.link_button("📱 Follow @TheFacelessQuant", "https://instagram.com/thefacelessquant")
-    st.link_button("🤝 Connect on LinkedIn", "https://www.linkedin.com/in/drs2015/")
-    st.divider()
-# -----------------------------------
-
-st.title("📈 The Quant Lab")
-st.markdown("### Your launchpad into Quant Finance.")
-
-st.markdown("""
-Demystifying quantitative finance, algorithmic trading, and market mechanics. 
-I build interactive Python & Streamlit apps to help aspiring quants master the math and pass their interviews.
-
-**👈 Use the sidebar to explore the daily quant simulators and build a hireable portfolio with me!**
-""")
+total_days = 40
+built_days = len(REGISTRY)
+st.progress(built_days / total_days, text=f"{built_days}/{total_days} days live")
 
 st.divider()
 
-col1, col2 = st.columns(2)
+PILLAR_WEEKS = {
+    "Linear Algebra": [1, 2],
+    "Calculus": [3],
+    "Probability & Stats": [4, 5],
+    "Quant Finance": [6, 7, 8],
+}
 
-with col1:
-    st.markdown("### Current Sprint: Linear Algebra")
-    st.markdown("""
-    *Mastering the math behind multi-asset portfolios and algorithmic trading.*
-    
-    * **Day 1:** Vectors, Scalars & Capital Allocation ✅
-    * **Day 2:** Matrix Addition & Portfolio Rebalancing *(Coming Soon)*
-    * **Day 3:** The Dot Product & Total Returns *(Coming Soon)*
-    * **Day 4:** Systems of Equations & Arbitrage *(Coming Soon)*
-    """)
-    
-with col2:
-    st.markdown("### The Master Roadmap")
-    st.markdown("""
-    * **Phase 1: Foundations & Math** (Linear algebra, statistics, and probability)
-    * **Phase 2: Strategy & Risk Management** (Time series analysis and performance metrics)
-    * **Phase 3: Alpha Generation** (Portfolio optimization and machine learning)
-    """)
+for pillar, weeks in PILLAR_WEEKS.items():
+    color = theme.PILLAR_COLORS[pillar]
+    st.markdown(f"<h3 style='color:{color};'>{pillar}</h3>", unsafe_allow_html=True)
+
+    any_card = False
+    for week in weeks:
+        for day, concept, page_path in get_by_week(week):
+            any_card = True
+            # One big tappable card per day — this IS the mobile nav.
+            st.page_link(
+                page_path,
+                label=f"Day {day} — {concept.name}",
+                icon=concept.icon,
+            )
+    if not any_card:
+        st.caption("Coming soon...")
+
+    st.write("")  # spacing between pillar sections
+
+st.divider()
+st.markdown(
+    f"<p style='color:{theme.TEXT_MUTED}; font-size:0.85rem;'>"
+    "Follow the daily build on Instagram @ThefacelessQuant · "
+    "Weekly projects posted on LinkedIn</p>",
+    unsafe_allow_html=True,
+)

@@ -1,11 +1,6 @@
-scipy
-pandas
+streamlit>=1.36
 numpy
-streamlit
-matplotlib
-datetime
-yfinance
-seaborn
+pandas
 plotly
-statsmodels
-nbformat>=4.2.0
+yfinance
+scipy
