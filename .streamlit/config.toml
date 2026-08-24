@@ -1,0 +1,18 @@
+# .streamlit/config.toml
+
+[theme]
+# Force the app into dark mode
+base="dark"
+
+# Primary accent color (Linear Algebra Cyan)
+primaryColor="#00e5ff"
+
+# True Dark Mode Backgrounds
+backgroundColor="#0b0f19"
+secondaryBackgroundColor="#131a2a"
+
+# Text Colors
+textColor="#f3f4f6"
+
+# Fonts
+font="sans serif"
