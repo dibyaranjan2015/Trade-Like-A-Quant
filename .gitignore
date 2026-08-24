@@ -5,6 +5,7 @@ env/
 reels/
 reels_strategy/
 reading/
+mentor/
 
 # Python Cache
 __pycache__/
