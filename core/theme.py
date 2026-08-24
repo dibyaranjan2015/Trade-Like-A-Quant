@@ -9,7 +9,7 @@ import plotly.graph_objects as go
 import plotly.io as pio
 import streamlit as st
 
-DARK_BG = "#0a0e1a"
+DARK_BG = "#7d7f83"
 PANEL_BG = "#11162280"
 PANEL_BORDER = "#1f2937"
 
@@ -19,8 +19,8 @@ PROBABILITY = "#22c55e"
 QUANT_FINANCE = "#f97316"
 
 TEXT_PRIMARY = "#e7e9ee"
-TEXT_MUTED = "#8b93a7"
-GRID_LINE = "#1f2937"
+TEXT_MUTED = "#9fa4af"
+GRID_LINE = "#f0f2f5"
 
 HEADING_FONT = "'Space Grotesk', 'Inter', sans-serif"
 BODY_FONT = "'Inter', -apple-system, sans-serif"
