@@ -19,7 +19,7 @@ PROBABILITY = "#22c55e"
 QUANT_FINANCE = "#f97316"
 
 TEXT_PRIMARY = "#e7e9ee"
-TEXT_MUTED = "#9fa4af"
+TEXT_MUTED = "#f4f6fa"
 GRID_LINE = "#f0f2f5"
 
 HEADING_FONT = "'Space Grotesk', 'Inter', sans-serif"
