@@ -71,24 +71,33 @@ pio.templates["quant_dark"] = build_plotly_template()
 
 def inject_base_css():
     """Call once per page, right after st.set_page_config()."""
+    
+    # We must explicitly force the Streamlit app background to match DARK_BG
     st.markdown(
         f"""
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
 
+        /* Force App Background */
+        .stApp {{
+            background-color: {DARK_BG} !important;
+        }}
+
         html, body, [class*="css"] {{
             font-family: {BODY_FONT};
+            color: {TEXT_PRIMARY} !important;
         }}
         h1, h2, h3 {{
             font-family: {HEADING_FONT} !important;
             letter-spacing: -0.01em;
+            color: #ffffff;
         }}
 
         .hero-title {{
             font-family: {HEADING_FONT};
             font-weight: 700;
             font-size: 2.4rem;
-            background: linear-gradient(90deg, {LINEAR_ALGEBRA}, {PROBABILITY});
+            background: linear-gradient(90deg, {LINEAR_ALGEBRA}, {CALCULUS});
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 0;
@@ -106,13 +115,14 @@ def inject_base_css():
             border-radius: 14px;
             padding: 20px 22px;
             margin-bottom: 14px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); /* Adds depth */
         }}
         .concept-panel h4 {{
             margin-top: 0;
             font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            color: {TEXT_MUTED};
+            color: {LINEAR_ALGEBRA}; /* Pop of color for panel headers */
             font-weight: 600;
         }}
         .concept-panel p {{
@@ -121,22 +131,27 @@ def inject_base_css():
             font-size: 1rem;
         }}
 
+        /* Styling Streamlit Page Links */
         a[data-testid="stPageLink-NavLink"] {{
             background-color: {PANEL_BG} !important;
             border: 1px solid {PANEL_BORDER} !important;
             border-radius: 12px !important;
             padding: 14px 18px !important;
             margin-bottom: 10px !important;
-            transition: border-color 0.15s ease;
+            transition: all 0.2s ease;
         }}
         a[data-testid="stPageLink-NavLink"]:hover {{
             border-color: {LINEAR_ALGEBRA} !important;
+            box-shadow: 0 0 8px {LINEAR_ALGEBRA}33; /* Slight glow effect */
+            transform: translateY(-1px);
         }}
         a[data-testid="stPageLink-NavLink"] p {{
             font-family: {HEADING_FONT} !important;
             font-weight: 500 !important;
+            color: {TEXT_PRIMARY} !important;
         }}
 
+        /* Metric Cards */
         [data-testid="stMetric"] {{
             background: {PANEL_BG};
             border: 1px solid {PANEL_BORDER};
@@ -145,6 +160,10 @@ def inject_base_css():
         }}
         [data-testid="stMetricLabel"] {{
             color: {TEXT_MUTED} !important;
+        }}
+        [data-testid="stMetricValue"] {{
+            color: {TEXT_PRIMARY} !important;
+            font-family: {HEADING_FONT};
         }}
 
         hr {{
@@ -170,15 +189,16 @@ def render_sidebar_brand():
     with st.sidebar:
         st.markdown(
             f"<div style='font-family:{HEADING_FONT}; font-weight:700; "
-            f"font-size:1.3rem; color:{LINEAR_ALGEBRA};'>ThefacelessQuant</div>"
-            f"<p style='color:{TEXT_MUTED}; font-size:0.85rem; margin-top:2px;'>"
-            "A daily study of quantitative finance</p><hr>",
+            f"font-size:1.4rem; color:{LINEAR_ALGEBRA}; margin-bottom: 5px;'>"
+            f"TheFacelessQuant</div>"
+            f"<p style='color:{TEXT_MUTED}; font-size:0.85rem; line-height: 1.4;'>"
+            "A daily study of quantitative finance & algorithmic trading</p><hr>",
             unsafe_allow_html=True,
         )
 
 
 def concept_panel(heading: str, body_html: str):
     st.markdown(
-        f"<div class='concept-panel'><h4>{heading}</h4>{body_html}</div>",
+        f"<div class='concept-panel'><h4>{heading}</h4><p>{body_html}</p></div>",
         unsafe_allow_html=True,
     )
