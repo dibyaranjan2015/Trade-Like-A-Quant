@@ -39,7 +39,7 @@ class Vectors(QuantConcept):
                 "to increase the Apple holding by 10%, "
                 "by trimming the holding of Microsoft and Alphabet by 5% each. This rebalance/trade is also a vector"
                 "u = [0.10, −0.05, −0.05]. To find the new allocation post trade we can simply add these two vectors" 
-                "and the new allocation is simply v + u = [0.50, 0.30, 0.20]."
+                "and the new allocation is simply v + u = [0.50, 0.30, 0.20]. This is how the porfolio managers balance there portfolio after each trade."
             ),
             "application": (
                 "Every portfolio, factor exposure, and return series in quantitative finance is "

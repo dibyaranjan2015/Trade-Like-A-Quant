@@ -148,14 +148,15 @@ with tab_deeper:
     st.markdown(
         f"<div class='concept-panel'>"
         f"<h4>Foundational — start here</h4>"
-        f"<p><strong>Gilbert Strang, <em>Introduction to Linear Algebra</em> (6th ed.), "
+        f"<p><strong>Gilbert Strang, <em>Introduction to Linear Algebra</em> (4th ed.), "
         f"Chapter 1: Vectors and Linear Combinations.</strong><br>"
         f"Strang opens with vectors before matrices precisely because everything else is built "
         f"on this chapter. Read sections 1.1 and 1.2. His language — 'linear combination', "
         f"'column picture' — is the language every quant paper uses. Pair with his free MIT "
-        f"OpenCourseWare 18.06 Lecture 1 (youtube search: 'Strang 18.06 Lecture 1'), which "
+        f"OpenCourseWare 18.06 Lecture 1 (link Below), which "
         f"covers the same material in 45 minutes visually before you do the exercises.</p>"
-        f"<p>Free lectures: ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/</p>"
+        f"<p>Book: <a href = 'https://jcer.in/jcer-docs/E-Learning/Digital%20Library%20/E-Books/linear-algebra-author-gilbert-strang.pdf'> Gilbert Strang, <em>Introduction to Linear Algebra</em> (4th ed.)</a></p>"
+        f"<p>Free lectures: <a href = 'https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-1-the-geometry-of-linear-equations/'> The Geometry of Linear Equations</a></p>"
         f"</div>",
         unsafe_allow_html=True,
     )
@@ -170,7 +171,7 @@ with tab_deeper:
         f"interpretation of vectors — as arrows in space — builds the visual intuition that "
         f"makes the portfolio-weight interpretation obvious rather than abstract. "
         f"The whole series is 15 short videos and covers everything in Phase 1.</p>"
-        f"<p>Search: '3Blue1Brown Essence of Linear Algebra' on YouTube.</p>"
+        f"<p>YouTube Link: <a href='https://www.youtube.com/watch?v=fNk_zzaMoSs'> Essence of Linear Algebra </a></p>"
         f"</div>",
         unsafe_allow_html=True,
     )
@@ -218,6 +219,7 @@ with tab_deeper:
         f"</div>",
         unsafe_allow_html=True,
     )
+
 
 st.divider()
 st.page_link("Home.py", label="Back to all concepts")
