@@ -1,28 +1,28 @@
 """
-pages/1_Vectors.py
-Day 1 — Vectors & Vector Operations. UI only; all math lives in core/day01_vectors.py.
+pages/2_Dot_Product.py
+Day 2 — Dot Product & Geometry. UI only; all math lives in core/day02_dot_product.py.
 """
 
 import streamlit as st
 
 from core import theme
-from core.day01_vectors import Vectors
+from core.day02_dot_product import DotProduct
 from core.device import is_mobile
 
-st.set_page_config(page_title="Vectors — ThefacelessQuant", page_icon="◆", layout="wide")
+st.set_page_config(page_title="Dot Product — ThefacelessQuant", page_icon="◆", layout="wide")
 theme.inject_base_css()
 theme.render_sidebar_brand()
 
-concept = Vectors()
+concept = DotProduct()
 data = concept.content()
 mobile = is_mobile()
 
 # ---------------------------------------------------------------- top nav
 nav_left, nav_right = st.columns(2)
 with nav_left:
-    st.page_link("Home.py", label="All concepts")
+    st.page_link("pages/1_Vectors.py", label="Back: Vectors")
 with nav_right:
-    st.page_link("pages/2_Dot_Product.py", label="Next: Dot Product")
+    st.page_link("pages/3_Matrices.py", label="Next: Matrices")
 
 # ---------------------------------------------------------------- header
 st.markdown(
@@ -51,24 +51,24 @@ def render_playground():
 
     mode = "2D" if mobile else st.radio("View", ["2D", "3D"], horizontal=True)
 
-    st.markdown("**v** — a portfolio allocation")
-    v1 = st.slider("v, first weight", -1.0, 1.0, 0.40, 0.05, key="v1")
-    v2 = st.slider("v, second weight", -1.0, 1.0, 0.35, 0.05, key="v2")
-    v3 = st.slider("v, third weight", -1.0, 1.0, 0.25, 0.05, key="v3") if mode == "3D" else 0.0
+    st.markdown("**v** — your portfolio's sector tilt")
+    v1 = st.slider("v, sector 1", 0.0, 1.0, 0.60, 0.05, key="v1")
+    v2 = st.slider("v, sector 2", 0.0, 1.0, 0.30, 0.05, key="v2")
+    v3 = st.slider("v, sector 3", 0.0, 1.0, 0.10, 0.05, key="v3") if mode == "3D" else None
 
-    st.markdown("**u** — a proposed trade")
-    u1 = st.slider("u, first weight", -1.0, 1.0, 0.10, 0.05, key="u1")
-    u2 = st.slider("u, second weight", -1.0, 1.0, -0.05, 0.05, key="u2")
-    u3 = st.slider("u, third weight", -1.0, 1.0, -0.05, 0.05, key="u3") if mode == "3D" else 0.0
+    st.markdown("**u** — the benchmark's sector weights")
+    u1 = st.slider("u, sector 1", 0.0, 1.0, 0.40, 0.05, key="u1")
+    u2 = st.slider("u, sector 2", 0.0, 1.0, 0.50, 0.05, key="u2")
+    u3 = st.slider("u, sector 3", 0.0, 1.0, 0.10, 0.05, key="u3") if mode == "3D" else None
 
     v = [v1, v2, v3] if mode == "3D" else [v1, v2]
     u = [u1, u2, u3] if mode == "3D" else [u1, u2]
     result = concept.compute(v=v, u=u)
 
     m1, m2, m3 = st.columns(3)
-    m1.metric("‖v‖", f"{result['norm_v']:.2f}")
-    m2.metric("v · u", f"{result['dot_v_u']:.2f}")
-    m3.metric("‖v + u‖", f"{result['norm_v_plus_u']:.2f}")
+    m1.metric("v · u", f"{result['dot']:.2f}")
+    m2.metric("cos θ", f"{result['cos_theta']:.2f}")
+    m3.metric("θ (degrees)", f"{result['angle_deg']:.1f}°")
 
     fig = concept.visualize(v=v, u=u, mode=mode)
     st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})

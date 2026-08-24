@@ -4,6 +4,7 @@ venv/
 env/
 reels/
 reels_strategy/
+reading/
 
 # Python Cache
 __pycache__/
