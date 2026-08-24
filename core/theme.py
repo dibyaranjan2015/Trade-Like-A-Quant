@@ -72,7 +72,6 @@ pio.templates["quant_dark"] = build_plotly_template()
 def inject_base_css():
     """Call once per page, right after st.set_page_config()."""
     
-    # We must explicitly force the Streamlit app background to match DARK_BG
     st.markdown(
         f"""
         <style>
@@ -83,16 +82,31 @@ def inject_base_css():
             background-color: {DARK_BG} !important;
         }}
 
-        html, body, [class*="css"] {{
+        /* Base Text */
+        html, body, [class*="css"], [data-testid="stMarkdownContainer"] p {{
             font-family: {BODY_FONT};
             color: {TEXT_PRIMARY} !important;
         }}
-        h1, h2, h3 {{
+
+        /* Aggressively target all Headers */
+        h1, h2, h3, h4, h5, h6, 
+        [data-testid="stMarkdownContainer"] h1,
+        [data-testid="stMarkdownContainer"] h2,
+        [data-testid="stMarkdownContainer"] h3 {{
             font-family: {HEADING_FONT} !important;
             letter-spacing: -0.01em;
-            color: #ffffff;
+            color: #ffffff !important;
         }}
 
+        /* FIX: LaTeX / Mathematical Formulas */
+        .katex, .katex-html, .katex-display {{
+            color: {LINEAR_ALGEBRA} !important; /* Gives formulas a nice neon cyan glow to stand out */
+        }}
+        .katex .frac-line {{
+            border-bottom-color: {LINEAR_ALGEBRA} !important; /* Ensures fraction division lines match */
+        }}
+
+        /* Hero Text Specifics */
         .hero-title {{
             font-family: {HEADING_FONT};
             font-weight: 700;
@@ -101,32 +115,34 @@ def inject_base_css():
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 0;
+            color: transparent !important; /* Fixes Webkit gradient override */
         }}
         .hero-subtitle {{
-            color: {TEXT_MUTED};
+            color: {TEXT_MUTED} !important;
             font-size: 1.05rem;
             margin-top: 6px;
             line-height: 1.5;
         }}
 
+        /* Concept Panels */
         .concept-panel {{
             background: {PANEL_BG};
             border: 1px solid {PANEL_BORDER};
             border-radius: 14px;
             padding: 20px 22px;
             margin-bottom: 14px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); /* Adds depth */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
         }}
         .concept-panel h4 {{
             margin-top: 0;
             font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            color: {LINEAR_ALGEBRA}; /* Pop of color for panel headers */
+            color: {LINEAR_ALGEBRA} !important; 
             font-weight: 600;
         }}
         .concept-panel p {{
-            color: {TEXT_PRIMARY};
+            color: {TEXT_PRIMARY} !important;
             line-height: 1.65;
             font-size: 1rem;
         }}
@@ -142,7 +158,7 @@ def inject_base_css():
         }}
         a[data-testid="stPageLink-NavLink"]:hover {{
             border-color: {LINEAR_ALGEBRA} !important;
-            box-shadow: 0 0 8px {LINEAR_ALGEBRA}33; /* Slight glow effect */
+            box-shadow: 0 0 8px {LINEAR_ALGEBRA}33;
             transform: translateY(-1px);
         }}
         a[data-testid="stPageLink-NavLink"] p {{
@@ -158,7 +174,7 @@ def inject_base_css():
             border-radius: 12px;
             padding: 14px 16px;
         }}
-        [data-testid="stMetricLabel"] {{
+        [data-testid="stMetricLabel"] p {{
             color: {TEXT_MUTED} !important;
         }}
         [data-testid="stMetricValue"] {{
@@ -183,7 +199,6 @@ def inject_base_css():
         """,
         unsafe_allow_html=True,
     )
-
 
 def render_sidebar_brand():
     with st.sidebar:
