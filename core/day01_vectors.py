@@ -32,12 +32,14 @@ class Vectors(QuantConcept):
                 ("Norm (length) of a vector", r"\lVert \mathbf{v} \rVert = \sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}"),
             ],
             "example": (
-                "Take a three-stock portfolio holding Apple, Microsoft and Alphabet, weighted "
-                "40%, 35% and 25%. That allocation is the vector v = [0.40, 0.35, 0.25]. "
-                "Its norm is √(0.40² + 0.35² + 0.25²) ≈ 0.587 — a single number that summarises "
-                "how concentrated the position is. Now suppose a rebalance shifts 10% into Apple, "
-                "funded by trimming Microsoft and Alphabet 5% each: that trade is the vector "
-                "u = [0.10, −0.05, −0.05], and the new allocation is simply v + u = [0.50, 0.30, 0.20]."
+                "Take a three-stock portfolio holding Apple, Microsoft and Amazon. The weight or the holding percentage of each stock"
+                "is 40%, 35% and 25% respectively. This stock allocation is the vector can be written as v = [0.40, 0.35, 0.25]. "
+                "The length of the vector or Norm is √(0.40² + 0.35² + 0.25²) ≈ 0.587 — a single number that summarises "
+                "how concentrated the position is. Now suppose we want to rebalance the portfolio holding, for example we want" 
+                "to increase the Apple holding by 10%, "
+                "by trimming the holding of Microsoft and Alphabet by 5% each. This rebalance/trade is also a vector"
+                "u = [0.10, −0.05, −0.05]. To find the new allocation post trade we can simply add these two vectors" 
+                "and the new allocation is simply v + u = [0.50, 0.30, 0.20]."
             ),
             "application": (
                 "Every portfolio, factor exposure, and return series in quantitative finance is "

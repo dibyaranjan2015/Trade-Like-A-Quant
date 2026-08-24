@@ -9,18 +9,20 @@ import plotly.graph_objects as go
 import plotly.io as pio
 import streamlit as st
 
-DARK_BG = "#c4c6c9"
-PANEL_BG = "#D3D3D480"
-PANEL_BORDER = "#c9cacb"
+DARK_BG = "#0b0f19"          # Deep midnight blue/black background
+PANEL_BG = "#131a2a"         # Slightly lighter for panels
+PANEL_BORDER = "#1f2937"     # Subtle border
 
-LINEAR_ALGEBRA = "#00e5ff"
-CALCULUS = "#a855f7"
-PROBABILITY = "#22c55e"
-QUANT_FINANCE = "#f97316"
+# High-contrast neon accents for mathematical pillars
+LINEAR_ALGEBRA = "#00e5ff"   # Cyan
+CALCULUS = "#a855f7"         # Purple
+PROBABILITY = "#22c55e"      # Green
+QUANT_FINANCE = "#f97316"    # Orange
 
-TEXT_PRIMARY = "#000206"
-TEXT_MUTED = "#000610"
-GRID_LINE = "#00050c"
+# Typography colors for dark backgrounds
+TEXT_PRIMARY = "#f3f4f6"     # Off-white for main text
+TEXT_MUTED = "#9ca3af"       # Soft gray for subtitles/axes
+GRID_LINE = "#1f2937"        # Dark gridlines to not overpower charts
 
 HEADING_FONT = "'Space Grotesk', 'Inter', sans-serif"
 BODY_FONT = "'Inter', -apple-system, sans-serif"
@@ -34,15 +36,32 @@ PILLAR_COLORS = {
 
 
 def build_plotly_template() -> go.layout.Template:
+    """Builds a custom Plotly template that matches the Streamlit dark theme."""
     template = go.layout.Template()
     template.layout = go.Layout(
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
         font=dict(family=BODY_FONT, color=TEXT_PRIMARY, size=13),
-        xaxis=dict(gridcolor=GRID_LINE, zerolinecolor=GRID_LINE, color=TEXT_MUTED),
-        yaxis=dict(gridcolor=GRID_LINE, zerolinecolor=GRID_LINE, color=TEXT_MUTED),
-        legend=dict(bgcolor="rgba(0,0,0,0)"),
+        xaxis=dict(
+            gridcolor=GRID_LINE, 
+            zerolinecolor=GRID_LINE, 
+            color=TEXT_MUTED,
+            showgrid=True,
+            showline=False
+        ),
+        yaxis=dict(
+            gridcolor=GRID_LINE, 
+            zerolinecolor=GRID_LINE, 
+            color=TEXT_MUTED,
+            showgrid=True,
+            showline=False
+        ),
+        legend=dict(
+            bgcolor="rgba(0,0,0,0)",
+            font=dict(color=TEXT_PRIMARY)
+        ),
         margin=dict(l=40, r=20, t=40, b=40),
+        colorway=[LINEAR_ALGEBRA, QUANT_FINANCE, PROBABILITY, CALCULUS] # Default line colors
     )
     return template
 
