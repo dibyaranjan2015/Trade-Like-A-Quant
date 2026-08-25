@@ -155,7 +155,6 @@ with tab_deeper:
         f"cos θ = (v · u) / (‖v‖‖u‖) by hand once. You will use this formula constantly "
         f"from Day 21 onward.</p>"
         f"<p>Book: <a href = 'https://jcer.in/jcer-docs/E-Learning/Digital%20Library%20/E-Books/linear-algebra-author-gilbert-strang.pdf'> Gilbert Strang, <em>Introduction to Linear Algebra</em> (4th ed.)</a></p>"
-        f"<p>Free lectures: <a href = 'https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-1-the-geometry-of-linear-equations/'> The Geometry of Linear Equations</a></p>"
         f"</div>",
         unsafe_allow_html=True,
     )
@@ -170,6 +169,7 @@ with tab_deeper:
         f"number. The projection interpretation is not obvious from the formula alone; "
         f"this video is the fastest way to make it click before you hit Day 21's "
         f"correlation coefficient, which is exactly this operation on standardised returns.</p>"
+        f"<p> Youtube Link <a href = 'https://www.youtube.com/watch?v=LyGKycYT2v0&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=9'> Episode 9: Dot Products and Duality </a> </p>"
         f"</div>",
         unsafe_allow_html=True,
     )
@@ -185,6 +185,7 @@ with tab_deeper:
         f"as an operational tool rather than a textbook exercise. Accessible without heavy "
         f"maths, and gives you a real picture of what today's formula is doing inside "
         f"an actual fund.</p>"
+        f"<p> <a href = 'https://books.google.co.in/books?id=aYA0LnecyTgC&printsec=frontcover#v=onepage&q&f=false'> Inside the Black Box (Partial Readable Book)</a> </p>"
         f"</div>",
         unsafe_allow_html=True,
     )
