@@ -185,7 +185,7 @@ with tab_deeper:
         f"as an operational tool rather than a textbook exercise. Accessible without heavy "
         f"maths, and gives you a real picture of what today's formula is doing inside "
         f"an actual fund.</p>"
-        f"<p> <a href = 'https://books.google.co.in/books?id=aYA0LnecyTgC&printsec=frontcover#v=onepage&q&f=false'> Inside the Black Box (Partial Readable Book)</a> </p>"
+        f"<p> Publically available Book:<a href = 'https://books.google.co.in/books?id=aYA0LnecyTgC&printsec=frontcover#v=onepage&q&f=false'> Inside the Black Box (Partial Readable Book)</a> </p>"
         f"</div>",
         unsafe_allow_html=True,
     )
