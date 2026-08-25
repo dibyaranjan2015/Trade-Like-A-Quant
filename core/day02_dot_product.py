@@ -105,8 +105,8 @@ class DotProduct(QuantConcept):
             arrow(proj[:2], theme.PROBABILITY, "proj")
 
             fig.update_layout(template="quant_dark",
-                               xaxis=dict(range=[-0.1, 1], title="Sector 1 weight"),
-                               yaxis=dict(range=[-0.1, 1], title="Sector 2 weight"))
+                               xaxis=dict(range=[-0.1, 1], title="Tech sector weight"),
+                               yaxis=dict(range=[-0.1, 1], title="Financials sector weight"))
         else:
             def arrow3d(vec, color, label):
                 fig.add_trace(go.Scatter3d(x=[0, vec[0]], y=[0, vec[1]], z=[0, vec[2] if len(vec) > 2 else 0],
