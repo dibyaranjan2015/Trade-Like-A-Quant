@@ -23,7 +23,7 @@ nav_left, nav_right = st.columns(2)
 with nav_left:
     st.page_link("pages/1_Vectors.py", label="Back: Vectors")
 with nav_right:
-    st.page_link("pages/3_Matrices.py", label="Next: Matrices")
+    # st.page_link("pages/3_Matrices.py", label="Next: Matrices")
 
 # ---------------------------------------------------------------- header
 st.markdown(
