@@ -23,7 +23,7 @@ nav_left, nav_right = st.columns(2)
 with nav_left:
     st.page_link("pages/1_Vectors.py", label="Back: Vectors")
 with nav_right:
-    st.page_link("https://#",label="Next: Matrices", disabled=True) # to be updated post page3 is published
+    st.link_button("Next: Matrices", "#") # to be updated post page3 is published
 
 # ---------------------------------------------------------------- header
 st.markdown(
