@@ -52,15 +52,15 @@ class Vectors(QuantConcept):
                           "after every trade."),
             ],
             "application": (
-                "Every portfolio, factor exposure, and return series in quantitative finance is just a vector." 
-                "Here is the translation key between textbook math and Wall Street:</p>"
+                "Every portfolio, factor exposure, and return series in quantitative finance is just a vector.</p>" 
+
                 "<ul>"
-                    "<li><strong>Rebalancing a book</strong> = Vector Addition</li>"
+                    "<li><strong>Rebalancing a Trade book</strong> = Vector Addition</li>"
                     "<li><strong>Leveraging a position</strong> = Scalar Multiplication</li>"
                     "<li><strong>Measuring total risk</strong> = The Vector Norm</li>"
                 "</ul>"
                 "<p><strong>The Bottom Line:</strong> Every advanced technique later in this series — "
-                "covariance matrices, PCA, and mean-variance optimization — is built directly on top of" 
+                "covariance matrices, PCA, and mean-variance optimization — is built directly on top of " 
                 "these three basic operations."
             ),
         }
@@ -88,15 +88,17 @@ class Vectors(QuantConcept):
                                     axref="x", ayref="y", showarrow=True, arrowhead=3,
                                     arrowsize=1.4, arrowwidth=3, arrowcolor=color)
                 fig.add_trace(go.Scatter(x=[vec[0]], y=[vec[1]], mode="markers+text",
-                                          marker=dict(size=1, color=color), text=[label],
-                                          textposition="top center", showlegend=False,
-                                          textfont=dict(color=color, size=13)))
+                                        marker=dict(size=1, color=color), text=[label],
+                                        textposition="top center", showlegend=False,
+                                        textfont=dict(color=color, size=13)))
             arrow(vec_v[:2], theme.LINEAR_ALGEBRA, "v")
             arrow(vec_u[:2], theme.QUANT_FINANCE, "u")
             arrow(vec_sum[:2], theme.PROBABILITY, "v + u")
+            
+            # Updated 2D labels
             fig.update_layout(template="quant_dark",
-                               xaxis=dict(range=[-1, 1], title="Asset 1 weight"),
-                               yaxis=dict(range=[-1, 1], title="Asset 2 weight"))
+                            xaxis=dict(range=[-1, 1], title="Apple (AAPL) Weight"),
+                            yaxis=dict(range=[-1, 1], title="Tesla (TSLA) Weight"))
         else:
             def arrow3d(vec, color, label):
                 fig.add_trace(go.Scatter3d(x=[0, vec[0]], y=[0, vec[1]], z=[0, vec[2]],
@@ -108,11 +110,13 @@ class Vectors(QuantConcept):
             arrow3d(vec_v, theme.LINEAR_ALGEBRA, "v")
             arrow3d(vec_u, theme.QUANT_FINANCE, "u")
             arrow3d(vec_sum, theme.PROBABILITY, "v + u")
+            
+            # Updated 3D labels inside the 'scene' dictionary
             fig.update_layout(template="quant_dark", showlegend=False,
-                               scene=dict(bgcolor="rgba(0,0,0,0)",
-                                          xaxis=dict(range=[-1, 1], backgroundcolor="rgba(0,0,0,0)"),
-                                          yaxis=dict(range=[-1, 1], backgroundcolor="rgba(0,0,0,0)"),
-                                          zaxis=dict(range=[-1, 1], backgroundcolor="rgba(0,0,0,0)")))
+                            scene=dict(bgcolor="rgba(0,0,0,0)",
+                                        xaxis=dict(range=[-1, 1], title="Apple (AAPL) Weight", backgroundcolor="rgba(0,0,0,0)"),
+                                        yaxis=dict(range=[-1, 1], title="Tesla (TSLA) Weight", backgroundcolor="rgba(0,0,0,0)"),
+                                        zaxis=dict(range=[-1, 1], title="Gold (GLD) Weight", backgroundcolor="rgba(0,0,0,0)")))
 
         fig.update_layout(height=420, margin=dict(l=10, r=10, t=20, b=10))
         return fig

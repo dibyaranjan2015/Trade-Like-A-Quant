@@ -59,22 +59,24 @@ with tab_practice:
     )
 
     PRESETS = {
-        "Tech-Heavy Bet": ((0.70, 0.20), (0.05, -0.05)),
-        "Balanced Start": ((0.40, 0.35), (0.10, -0.05)),
-        "Defensive Shift": ((0.20, 0.60), (-0.05, 0.05)),
-        "All In": ((0.90, 0.05), (0.05, 0.00)),
+        "Growth Focus (Tech & EV)": ((0.45, 0.45, 0.10), (0.1, -0.05, -0.5)),
+        "Safe Haven (Mostly Gold)": ((0.10, 0.10, 0.80), (0.05, -0.05, 0.00)),
+        "Balanced (Equal Split)": ((1/3, 1/3, 1/3), (0.1, -0.05, -0.5)),
+        "Max Exposure (Leveraged)": ((1, 1, 1), (0.1, -0.05, -0.5))
     }
     (v_default, u_default) = lesson_ui.preset_picker(
-        PRESETS, key="day1_preset", default="Balanced Start"
+        PRESETS, key="day1_preset", default="Balanced (Equal Split)"
     )
     label = st.session_state["day1_preset"]
 
     with st.expander("Fine-tune it yourself"):
-        v1 = st.slider("AAPL weight", -1.0, 1.0, v_default[0], 0.05, key=f"v1_{label}")
-        v2 = st.slider("MSFT weight", -1.0, 1.0, v_default[1], 0.05, key=f"v2_{label}")
-        u1 = st.slider("AAPL trade", -1.0, 1.0, u_default[0], 0.05, key=f"u1_{label}")
-        u2 = st.slider("MSFT trade", -1.0, 1.0, u_default[1], 0.05, key=f"u2_{label}")
-    v, u = [v1, v2], [u1, u2]
+        v1 = st.slider("APPLE weight", -1.0, 1.0, v_default[0], 0.05, key=f"v1_{label}")
+        v2 = st.slider("TESLA weight", -1.0, 1.0, v_default[1], 0.05, key=f"v2_{label}")
+        v3 = st.slider("GOLD weight", -1.0, 1.0, v_default[2], 0.05, key=f"v3_{label}")
+        u1 = st.slider("APPLE trade", -1.0, 1.0, u_default[0], 0.05, key=f"u1_{label}")
+        u2 = st.slider("TESLA trade", -1.0, 1.0, u_default[1], 0.05, key=f"u2_{label}")
+        u3 = st.slider("GOLD trade", -1.0, 1.0, u_default[2], 0.05, key=f"u3_{label}")
+    v, u = [v1, v2, v3], [u1, u2, u3]
 
     result = concept.compute(v=v, u=u)
 
@@ -83,7 +85,7 @@ with tab_practice:
     m2.metric("v · u", f"{result['dot_v_u']:.2f}")
     m3.metric("‖v+u‖  (after trade)", f"{result['norm_v_plus_u']:.2f}")
 
-    fig = concept.visualize(v=v, u=u, mode="2D")
+    fig = concept.visualize(v=v, u=u, mode="3D")
     st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
 
 # ================================================================ TAB 3: CHALLENGE
