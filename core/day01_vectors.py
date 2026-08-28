@@ -52,14 +52,16 @@ class Vectors(QuantConcept):
                           "after every trade."),
             ],
             "application": (
-                "Every portfolio, factor exposure, and return series in quantitative finance is just a vector. Here is the translation key between textbook math and Wall Street:"
-
-                "**Rebalancing a book** = Vector Addition"
-                "**Leveraging a position** = Scalar Multiplication"
-                "**Measuring total risk** = The Vector Norm"
-
-                "**The Bottom Line:** Every advanced technique later in this series — covariance matrices, PCA, and mean-variance optimization — is built directly on top of these three basic operations."
-                
+                "Every portfolio, factor exposure, and return series in quantitative finance is just a vector." 
+                "Here is the translation key between textbook math and Wall Street:"
+                "<ul>"
+                    "<li><strong>Rebalancing a book</strong> = Vector Addition</li>"
+                    "<li><strong>Leveraging a position</strong> = Scalar Multiplication</li>"
+                    "<li><strong>Measuring total risk</strong> = The Vector Norm</li>"
+                "</ul>"
+                "<p><strong>The Bottom Line:</strong> Every advanced technique later in this series — "
+                "covariance matrices, PCA, and mean-variance optimization — is built directly on top of" 
+                "these three basic operations."
             ),
         }
 
