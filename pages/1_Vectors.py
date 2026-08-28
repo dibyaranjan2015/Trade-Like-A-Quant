@@ -61,8 +61,8 @@ with tab_practice:
     PRESETS = {
         "Growth Focus (Tech & EV)": ((0.45, 0.45, 0.10), (0.1, -0.05, -0.5)),
         "Safe Haven (Mostly Gold)": ((0.10, 0.10, 0.80), (0.05, -0.05, 0.00)),
-        "Balanced (Equal Split)": ((1/3, 1/3, 1/3), (0.1, -0.05, -0.5)),
-        "Max Exposure (Leveraged)": ((1, 1, 1), (0.1, -0.05, -0.5))
+        "Balanced (Equal Split)": ((0.33, 0.33, 0.34), (0.1, -0.05, -0.5)),
+        "Max Exposure (Leveraged)": ((1.00, 1.00, 1.00), (0.1, -0.05, -0.5))
     }
     (v_default, u_default) = lesson_ui.preset_picker(
         PRESETS, key="day1_preset", default="Balanced (Equal Split)"
