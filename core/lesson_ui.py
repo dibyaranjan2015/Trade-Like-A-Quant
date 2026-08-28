@@ -52,7 +52,7 @@ def render_learn_flow(concept, data: dict):
                 st.markdown(f"<p>{content}</p>", unsafe_allow_html=True)
         theme.panel_close()
     else:
-        theme.concept_panel(title, f"<p>{data[field]}</p>")
+        theme.concept_panel(title, f"<p>{st.markdown(data[field])}</p>")
 
     nav_back, nav_next = st.columns(2)
     with nav_back:
