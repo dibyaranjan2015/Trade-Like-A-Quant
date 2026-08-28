@@ -237,13 +237,13 @@ def Home_page_setup():
     <style>
         /* Main Typography */
         h1, h2, h3, p { font-family: 'Inter', sans-serif; }
-        .hero-title { font-size: 2.5rem; font-weight: 700; color: #ffffff; margin-bottom: 0.2rem; }
+        .hero-title { font-size: 1.5rem; font-weight: 700; color: #ffffff; margin-bottom: 0.2rem; }
         .hero-subtitle { font-size: 1rem; color: #a0aec0; margin-bottom: 2rem; max-width: 800px;}
         .stats-container { display: flex; gap: 20px; margin-bottom: 1.5rem; flex-wrap: wrap; }
         .stat-card {
             flex: 1; min-width: 200px;
             background: linear-gradient(145deg, #1a1e27, #13151a);
-            border-radius: 12px; padding: 20px;
+            border-radius: 12px; padding: 5px;
             display: flex; justify-content: space-between; align-items: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
