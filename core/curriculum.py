@@ -1,12 +1,3 @@
-"""
-core/curriculum.py
-The complete 40-day roadmap, independent of what's actually been built yet.
-core/registry.py tracks what EXISTS (has a page); this file tracks what the
-WHOLE plan is. Home.py combines the two: built days render as clickable
-cards, everything else renders as a greyed-out upcoming entry — so a
-visitor always sees the full 40-day journey, not just the 3 days so far.
-"""
-
 FULL_CURRICULUM = [
     {"day": 1, "name": "Vectors & Vector Operations", "pillar": "Linear Algebra", "week": 1},
     {"day": 2, "name": "Dot Product & Geometry", "pillar": "Linear Algebra", "week": 1},
@@ -53,15 +44,15 @@ FULL_CURRICULUM = [
     {"day": 40, "name": "Quant Interview Projects", "pillar": "Quant Finance", "week": 8},
 ]
 
-# The Saturday composed OOP project for each week, per the original roadmap.
+
 WEEKLY_PROJECTS = {
-    1: "LinearAlgebraToolkit v1",
-    2: "Portfolio Optimizer (Markowitz) v1",
-    3: "CalculusToolkit v1",
-    4: "Risk Model Engine v1",
-    5: "StatsToolkit v1",
-    6: "Portfolio Optimizer v2 (full MPT)",
-    7: "Options Pricing Engine v1",
+    1: "Linear AlgebraToolkit",
+    2: "Portfolio Optimizer (Markowitz)",
+    3: "CalculusToolkit",
+    4: "Risk Model Engine",
+    5: "StatsToolkit",
+    6: "Portfolio Optimizer (full MPT)",
+    7: "Options Pricing Engine",
     8: "Capstone: Full Quant Research Dashboard",
 }
 

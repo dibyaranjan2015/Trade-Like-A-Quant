@@ -8,7 +8,7 @@ from core.curriculum import by_pillar, WEEKLY_PROJECTS
 
 st.set_page_config(
     page_title="ThefacelessQuant",
-    page_icon="◆",
+    page_icon="assets/fq.ico",
     layout="centered",
     initial_sidebar_state="collapsed",
 )
@@ -18,7 +18,7 @@ theme.render_sidebar_brand()
 st.markdown(
     "<p class='hero-title'>ThefacelessQuant</p>"
     "<p class='hero-subtitle'>A daily study of the mathematics behind quantitative "
-    "finance — one concept a day, built in the open, from linear algebra through "
+    "finance — one concept a day from linear algebra "
     "to options pricing.</p>",
     unsafe_allow_html=True,
 )
