@@ -53,7 +53,7 @@ class Vectors(QuantConcept):
             ],
             "application": (
                 "Every portfolio, factor exposure, and return series in quantitative finance is just a vector." 
-                "Here is the translation key between textbook math and Wall Street:"
+                "Here is the translation key between textbook math and Wall Street:</p>"
                 "<ul>"
                     "<li><strong>Rebalancing a book</strong> = Vector Addition</li>"
                     "<li><strong>Leveraging a position</strong> = Scalar Multiplication</li>"
