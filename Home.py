@@ -43,23 +43,23 @@ def render_progress_metrics(completed_days: set, built_days: int):
     <div class="stat-card streak">
         <div class="stat-text">
             <h4>Streak</h4>
-            <h3>{streak} days</h2>
+            <h2>{streak} days</h2>
         </div>
-        <div class="stat-icon" style="font-size: 1rem;">🔥</div>
+        <div class="stat-icon" style="font-size: 1.5rem;">🔥</div>
     </div>
     <div class="stat-card completed">
         <div class="stat-text">
             <h4>Completed</h4>
-            <h3>{len(completed_days)} / {built_days}</h2>
+            <h2>{len(completed_days)} / {built_days}</h2>
         </div>
-        <div class="stat-icon" style="font-size: 1rem;">⭕</div>
+        <div class="stat-icon" style="font-size: 1.5rem;">⭕</div>
     </div>
     <div class="stat-card progress">
         <div class="stat-text">
             <h4>Series progress</h4>
-            <h3>{built_days} / {total_days}</h2>
+            <h2>{built_days} / {total_days}</h2>
         </div>
-        <div class="stat-icon" style="font-size: 1rem;">🟢</div>
+        <div class="stat-icon" style="font-size: 1.5rem;">🟢</div>
     </div>
 </div>
 """, unsafe_allow_html=True)

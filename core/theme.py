@@ -243,7 +243,7 @@ def Home_page_setup():
         .stat-card {
             flex: 1; min-width: 200px;
             background: linear-gradient(145deg, #1a1e27, #13151a);
-            border-radius: 5px; padding: 5px;
+            border-radius: 5px; padding: 10px;
             display: flex; justify-content: space-between; align-items: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
@@ -251,7 +251,7 @@ def Home_page_setup():
         .stat-card.completed { border: 1px solid #1d4ed8; }
         .stat-card.progress { border: 1px solid #047857; }
         .stat-text h4 { margin: 0; font-size: 0.85rem; color: #9ca3af; font-weight: 500; }
-        .stat-text h2 { margin: 0; font-size: 2.2rem; font-weight: 700; }
+        .stat-text h2 { margin: 0; font-size: 1.5rem; font-weight: 700; }
         .streak h2 { color: #f59e0b; }
         .completed h2 { color: #3b82f6; }
         .progress h2 { color: #10b981; }
