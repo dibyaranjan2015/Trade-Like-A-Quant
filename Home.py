@@ -11,10 +11,11 @@ import streamlit as st
 from core import theme
 from core.device import is_mobile
 from core.registry import REGISTRY, get_by_week
+from core import progress
 
 st.set_page_config(
     page_title="ThefacelessQuant",
-    page_icon="◆",
+    page_icon="assets/fq.ico",
     layout="centered",
     initial_sidebar_state="collapsed",
 )
@@ -29,9 +30,22 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+completed = progress.get_completed_days()
+streak = progress.current_streak(completed)
 total_days = 40
 built_days = len(REGISTRY)
-st.progress(built_days / total_days, text=f"{built_days} of {total_days} concepts published")
+
+stat1, stat2, stat3 = st.columns(3)
+stat1.metric("Streak", f"{streak} day{'s' if streak != 1 else ''}")
+stat2.metric("Completed", f"{len(completed)} / {built_days}")
+stat3.metric("Series progress", f"{built_days} / {total_days}")
+
+if streak == 0 and len(completed) == 0:
+    st.markdown(
+        f"<p style='color:{theme.TEXT_MUTED}; font-size:0.9rem;'>Pass a Day's "
+        f"Challenge quiz to start your streak.</p>",
+        unsafe_allow_html=True,
+    )
 st.write("")
 
 PILLAR_WEEKS = {
@@ -62,12 +76,14 @@ for pillar, weeks in PILLAR_WEEKS.items():
 
     if mobile:
         for day, concept, page_path in days_in_pillar:
-            st.page_link(page_path, label=f"Day {day} — {concept.name}")
+            mark = " ✓" if day in completed else ""
+            st.page_link(page_path, label=f"Day {day} — {concept.name}{mark}")
     else:
         cols = st.columns(2)
         for i, (day, concept, page_path) in enumerate(days_in_pillar):
             with cols[i % 2]:
-                st.page_link(page_path, label=f"Day {day} — {concept.name}")
+                mark = " ✓" if day in completed else ""
+                st.page_link(page_path, label=f"Day {day} — {concept.name}{mark}")
 
     st.write("")
 

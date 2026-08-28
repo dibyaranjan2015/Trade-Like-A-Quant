@@ -39,3 +39,12 @@ class QuantConcept(ABC):
     def visualize(self, *args, **kwargs):
         """Returns a Plotly figure using the shared 'quant_dark' template."""
         raise NotImplementedError
+
+    def quiz(self) -> list:
+        """
+        Optional 3-question end-of-day check, each item:
+        {"question": str, "options": [str, str, str, str],
+         "correct": int (index into options), "explanation": str}
+        Returns [] if a day hasn't defined one yet.
+        """
+        return []

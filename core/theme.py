@@ -200,20 +200,33 @@ def inject_base_css():
         unsafe_allow_html=True,
     )
 
+
 def render_sidebar_brand():
     with st.sidebar:
-        st.markdown(
-            f"<div style='font-family:{HEADING_FONT}; font-weight:700; "
-            f"font-size:1.4rem; color:{LINEAR_ALGEBRA}; margin-bottom: 5px;'>"
-            f"TheFacelessQuant</div>"
-            f"<p style='color:{TEXT_MUTED}; font-size:0.85rem; line-height: 1.4;'>"
-            "A daily study of quantitative finance & algorithmic trading</p><hr>",
-            unsafe_allow_html=True,
+         st.markdown(
+             f"<div style='font-family:{HEADING_FONT}; font-weight:700; "
+             f"font-size:1.4rem; color:#00E5FF; margin-bottom: 0px;'>"
+             f"TheFacelessQuant</div>"
+             f"<p style='color:{TEXT_MUTED}; font-size:0.85rem; line-height: 1.4;'>"
+                "An Open Learning platform for aspiring Quants - Master the Math, build Models and turn Ideas into Alpha</p><hr>",
+            #  "A daily study of quantitative finance & algorithmic trading</p><hr>",
+             unsafe_allow_html=True,
         )
 
 
 def concept_panel(heading: str, body_html: str):
     st.markdown(
-        f"<div class='concept-panel'><h4>{heading}</h4><p>{body_html}</p></div>",
+        f"<div class='concept-panel'><h4>{heading}</h4>{body_html}</div>",
         unsafe_allow_html=True,
     )
+
+
+def panel_open(heading: str):
+    """Opens a concept-panel div without closing it — use when the body needs
+    a mix of Streamlit elements (st.latex, st.markdown) rather than one HTML
+    string. Always pair with panel_close()."""
+    st.markdown(f"<div class='concept-panel'><h4>{heading}</h4>", unsafe_allow_html=True)
+
+
+def panel_close():
+    st.markdown("</div>", unsafe_allow_html=True)

@@ -31,16 +31,25 @@ class Vectors(QuantConcept):
                 ("Scalar multiplication", r"c\,\mathbf{v} = [c v_1,\ c v_2,\ \ldots,\ c v_n]"),
                 ("Norm (length) of a vector", r"\lVert \mathbf{v} \rVert = \sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}"),
             ],
-            "example": (
-                "Take a three-stock portfolio holding Apple, Microsoft and Amazon. The weight or the holding percentage of each stock"
-                "is 40%, 35% and 25% respectively. This stock allocation is the vector can be written as v = [0.40, 0.35, 0.25]. "
-                "The length of the vector or Norm is √(0.40² + 0.35² + 0.25²) ≈ 0.587 — a single number that summarises "
-                "how concentrated the position is. Now suppose we want to rebalance the portfolio holding, for example we want" 
-                "to increase the Apple holding by 10%, "
-                "by trimming the holding of Microsoft and Alphabet by 5% each. This rebalance/trade is also a vector"
-                "u = [0.10, −0.05, −0.05]. To find the new allocation post trade we can simply add these two vectors" 
-                "and the new allocation is simply v + u = [0.50, 0.30, 0.20]. This is how the porfolio managers balance there portfolio after each trade."
-            ),
+            "example": [
+                ("text", "Take a three-stock portfolio holding Apple, Microsoft and "
+                          "Alphabet. The weight, or holding percentage, of each stock is "
+                          "40%, 35% and 25% respectively. This allocation can be written "
+                          "as the vector:"),
+                ("latex", r"v = [0.40,\ 0.35,\ 0.25]"),
+                ("text", "The length of the vector, or its norm, is:"),
+                ("latex", r"\lVert v \rVert = \sqrt{0.40^2 + 0.35^2 + 0.25^2} \approx 0.587"),
+                ("text", "That single number summarises how concentrated the position "
+                          "is. Now suppose the plan is to rebalance the portfolio — "
+                          "increase the Apple holding by 10%, funded by trimming "
+                          "Microsoft and Alphabet by 5% each. This trade is also a vector:"),
+                ("latex", r"u = [0.10,\ -0.05,\ -0.05]"),
+                ("text", "To find the new allocation after the trade, simply add the "
+                          "two vectors:"),
+                ("latex", r"v + u = [0.50,\ 0.30,\ 0.20]"),
+                ("text", "This is exactly how portfolio managers rebalance a book "
+                          "after every trade."),
+            ],
             "application": (
                 "Every portfolio, factor exposure, and return series in quantitative finance is "
                 "stored and manipulated as a vector. Rebalancing a book is vector addition. "
@@ -102,3 +111,26 @@ class Vectors(QuantConcept):
 
         fig.update_layout(height=420, margin=dict(l=10, r=10, t=20, b=10))
         return fig
+
+    def quiz(self) -> list:
+        return [
+            {
+                "question": "You hold v = [0.5, 0.5] and add a trade u = [-0.5, -0.5]. What is the norm of the resulting portfolio?",
+                "options": ["0", "0.5", "1.0", "0.71"],
+                "correct": 0,
+                "explanation": "v + u = [0, 0] — the zero vector. Its norm is 0: you've fully closed the position.",
+            },
+            {
+                "question": "Which operation changes a vector's magnitude but never its direction?",
+                "options": ["Vector addition", "Scalar multiplication", "Taking the norm", "Dot product"],
+                "correct": 1,
+                "explanation": "Multiplying by a positive scalar c stretches or shrinks a vector along the same line — direction never changes.",
+            },
+            {
+                "question": "A portfolio vector has a large norm. What does that tell you on its own?",
+                "options": ["The portfolio is profitable", "The portfolio has large total exposure",
+                            "The portfolio is well diversified", "The portfolio has low risk"],
+                "correct": 1,
+                "explanation": "The norm only measures magnitude of exposure — nothing about direction, diversification, or profitability.",
+            },
+        ]

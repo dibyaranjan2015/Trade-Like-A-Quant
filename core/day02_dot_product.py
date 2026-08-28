@@ -36,15 +36,21 @@ class DotProduct(QuantConcept):
                 ("Angle between two vectors", r"\cos\theta = \frac{\mathbf{v} \cdot \mathbf{u}}{\lVert \mathbf{v} \rVert\, \lVert \mathbf{u} \rVert}"),
                 ("Projection of v onto u", r"\text{proj}_{\mathbf{u}}\,\mathbf{v} = \frac{\mathbf{v} \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert^2}\, \mathbf{u}"),
             ],
-            "example": (
-                "Say your book is tilted v = [0.60, 0.30] across two sectors, and the "
-                "benchmark you're measured against sits at u = [0.40, 0.50]. The dot "
-                "product is (0.60 × 0.40) + (0.30 × 0.50) = 0.39. Dividing by the two "
-                "vectors' lengths gives cos θ ≈ 0.91, which puts the angle between them "
-                "at about 25°. Your book isn't identical to the benchmark, but it's "
-                "pointing in a similar direction — a tight tracking error, not a bet "
-                "against it."
-            ),
+            "example": [
+                ("text", "Say your book is tilted toward tech and financials — a vector "
+                          "v — while the benchmark you're measured against sits at a "
+                          "different weighting, u:"),
+                ("latex", r"v = [0.60,\ 0.30], \quad u = [0.40,\ 0.50]"),
+                ("text", "The dot product multiplies the matching weights and adds "
+                          "them up:"),
+                ("latex", r"v \cdot u = (0.60)(0.40) + (0.30)(0.50) = 0.39"),
+                ("text", "Dividing by the two vectors' lengths turns that number "
+                          "into an angle:"),
+                ("latex", r"\cos\theta = \frac{0.39}{\lVert v \rVert \lVert u \rVert} \approx 0.91 \ \Rightarrow\ \theta \approx 25^\circ"),
+                ("text", "Your book isn't identical to the benchmark, but it's "
+                          "pointing in a similar direction — a tight tracking error, "
+                          "not an active bet against it."),
+            ],
             "application": (
                 "Cosine similarity between return vectors is exactly this calculation, "
                 "and it's how factor models measure how much a stock 'loads' onto a "
@@ -106,7 +112,7 @@ class DotProduct(QuantConcept):
 
             fig.update_layout(template="quant_dark",
                                xaxis=dict(range=[-0.1, 1], title="Tech sector weight"),
-                               yaxis=dict(range=[-0.1, 1], title="Financials sector weight", scaleanchor="x",scaleratio=1))
+                               yaxis=dict(range=[-0.1, 1], title="Financials sector weight"))
         else:
             def arrow3d(vec, color, label):
                 fig.add_trace(go.Scatter3d(x=[0, vec[0]], y=[0, vec[1]], z=[0, vec[2] if len(vec) > 2 else 0],
@@ -118,10 +124,34 @@ class DotProduct(QuantConcept):
             arrow3d(vec_v, theme.LINEAR_ALGEBRA, "v")
             arrow3d(vec_u, theme.QUANT_FINANCE, "u")
             fig.update_layout(template="quant_dark", showlegend=False,
-                               scene=dict(aspectmode="cube", bgcolor="rgba(0,0,0,0)",
+                               scene=dict(bgcolor="rgba(0,0,0,0)",
                                           xaxis=dict(range=[-0.1, 1], backgroundcolor="rgba(0,0,0,0)"),
                                           yaxis=dict(range=[-0.1, 1], backgroundcolor="rgba(0,0,0,0)"),
                                           zaxis=dict(range=[-0.1, 1], backgroundcolor="rgba(0,0,0,0)")))
 
         fig.update_layout(height=420, margin=dict(l=10, r=10, t=20, b=10))
         return fig
+
+    def quiz(self) -> list:
+        return [
+            {
+                "question": "If v · u = 0 for two nonzero vectors, what does that mean?",
+                "options": ["They point in the same direction", "They are orthogonal (unrelated)",
+                            "They have the same length", "One of them is the zero vector"],
+                "correct": 1,
+                "explanation": "A dot product of zero means the vectors are perpendicular — orthogonal, carrying no shared direction.",
+            },
+            {
+                "question": "cos θ between your book and the benchmark is close to 1. What does that say?",
+                "options": ["Very different positioning", "Nearly identical direction",
+                            "Perfectly negatively correlated", "Nothing can be concluded"],
+                "correct": 1,
+                "explanation": "cos θ near 1 means the angle is near 0° — the two vectors point almost the same way.",
+            },
+            {
+                "question": "Which is the geometric form of the dot product?",
+                "options": ["v·u = ‖v‖ + ‖u‖", "v·u = ‖v‖‖u‖cos θ", "v·u = ‖v‖ / ‖u‖", "v·u = ‖v‖ - ‖u‖"],
+                "correct": 1,
+                "explanation": "v·u = ‖v‖‖u‖cos θ links the algebraic dot product to the angle between the two vectors.",
+            },
+        ]
