@@ -82,7 +82,7 @@ with tab_practice:
 
     m1, m2, m3 = st.columns(3)
     m1.metric("‖v‖  (exposure)", f"{result['norm_v']:.2f}")
-    m2.metric("v + u", f"{[result['v_plus_u']]}")
+    m2.metric("v + u", f"{result['v_plus_u']}")
     m3.metric("‖v+u‖  (after trade)", f"{result['norm_v_plus_u']:.2f}")
 
     fig = concept.visualize(v=v, u=u, mode="3D")
