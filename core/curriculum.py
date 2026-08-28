@@ -44,7 +44,6 @@ FULL_CURRICULUM = [
     {"day": 40, "name": "Quant Interview Projects", "pillar": "Quant Finance", "week": 8},
 ]
 
-
 WEEKLY_PROJECTS = {
     1: "Linear AlgebraToolkit",
     2: "Portfolio Optimizer (Markowitz)",
