@@ -216,7 +216,7 @@ def render_sidebar_brand():
 
 def concept_panel(heading: str, body_html: str):
     st.markdown(
-        f"<div class='concept-panel'><h4>{heading}</h4>{body_html}</div>",
+        f"<div class='concept-panel'><h4>{heading}</h4>{st.markdown(body_html)}</div>",
         unsafe_allow_html=True,
     )
 
