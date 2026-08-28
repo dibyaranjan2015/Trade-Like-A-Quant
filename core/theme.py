@@ -230,3 +230,51 @@ def panel_open(heading: str):
 
 def panel_close():
     st.markdown("</div>", unsafe_allow_html=True)
+
+
+def Home_page_setup():
+    st.markdown("""
+    <style>
+        /* Main Typography */
+        h1, h2, h3, p { font-family: 'Inter', sans-serif; }
+        .hero-title { font-size: 2.5rem; font-weight: 700; color: #ffffff; margin-bottom: 0.2rem; }
+        .hero-subtitle { font-size: 1rem; color: #a0aec0; margin-bottom: 2rem; max-width: 800px;}
+        .stats-container { display: flex; gap: 20px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .stat-card {
+            flex: 1; min-width: 200px;
+            background: linear-gradient(145deg, #1a1e27, #13151a);
+            border-radius: 12px; padding: 20px;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .stat-card.streak { border: 1px solid #b45309; }
+        .stat-card.completed { border: 1px solid #1d4ed8; }
+        .stat-card.progress { border: 1px solid #047857; }
+        .stat-text h4 { margin: 0; font-size: 0.85rem; color: #9ca3af; font-weight: 500; }
+        .stat-text h2 { margin: 0; font-size: 2.2rem; font-weight: 700; }
+        .streak h2 { color: #f59e0b; }
+        .completed h2 { color: #3b82f6; }
+        .progress h2 { color: #10b981; }
+        .week-banner {
+            font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; color: white;
+            padding: 6px 20px; border-radius: 0 15px 15px 0;
+            display: inline-block; margin: 1.5rem 0 1rem -1rem; 
+        }
+        .banner-blue { background: linear-gradient(90deg, #1e3a8a, #0ea5e9); clip-path: polygon(0 0, 95% 0, 100% 100%, 0% 100%);}
+        .banner-purple { background: linear-gradient(90deg, #4c1d95, #a855f7); clip-path: polygon(0 0, 95% 0, 100% 100%, 0% 100%);}
+        .day-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 15px; }
+        .day-card {
+            background: #111827; border-radius: 10px; padding: 15px 20px;
+            display: flex; justify-content: space-between; align-items: center;
+            text-decoration: none !important; color: white !important;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .day-card:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
+        .day-card p { margin: 0; font-size: 0.95rem; font-weight: 500; }
+        .border-blue { border: 1px solid #0ea5e9; }
+        .border-gold { border: 1px solid #f59e0b; }
+        .border-green { border: 1px solid #10b981; }
+        .border-purple { border: 1px solid #a855f7; }
+        .check-mark { color: #f59e0b; margin-left: 8px; font-weight: bold;}
+    </style>
+        """, unsafe_allow_html=True)
