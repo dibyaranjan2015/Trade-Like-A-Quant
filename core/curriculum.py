@@ -45,11 +45,11 @@ FULL_CURRICULUM = [
 ]
 
 WEEKLY_PROJECTS = {
-    1: "Linear AlgebraToolkit",
+    1: "Linear Algebra Toolkit",
     2: "Portfolio Optimizer (Markowitz)",
-    3: "CalculusToolkit",
+    3: "Calculus Toolkit",
     4: "Risk Model Engine",
-    5: "StatsToolkit",
+    5: "Stats Toolkit",
     6: "Portfolio Optimizer (full MPT)",
     7: "Options Pricing Engine",
     8: "Capstone: Full Quant Research Dashboard",
