@@ -208,8 +208,8 @@ def render_sidebar_brand():
              f"font-size:1.4rem; color:#00E5FF; margin-bottom: 0px;'>"
              f"TheFacelessQuant</div>"
              f"<p style='color:{TEXT_MUTED}; font-size:0.85rem; line-height: 1.4;'>"
-                "An Open Learning platform for aspiring Quants - Master the Math, build Models and turn Ideas into Alpha</p><hr>",
-            #  "A daily study of quantitative finance & algorithmic trading</p><hr>",
+                # "An Open Learning platform for aspiring Quants - Master the Math, build Models and turn Ideas into Alpha</p><hr>",
+             "A daily study of quantitative finance & algorithmic trading</p><hr>",
              unsafe_allow_html=True,
         )
 
