@@ -243,7 +243,7 @@ def Home_page_setup():
         .stat-card {
             flex: 1; min-width: 200px;
             background: linear-gradient(145deg, #1a1e27, #13151a);
-            border-radius: 5px; padding: 10px;
+            border-radius: 20px; padding: 10px;
             display: flex; justify-content: space-between; align-items: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
