@@ -71,8 +71,8 @@ for pillar, entries in by_pillar():
         project = WEEKLY_PROJECTS.get(week)
         if project:
             st.markdown(
-                f"<p style='color:{theme.TEXT_MUTED}; font-size:0.78rem; "
-                f"margin:10px 0 4px 0; text-transform:uppercase; letter-spacing:0.05em;'>"
+                f"<p style='color:{theme.LINEAR_ALGEBRA}; font-size:0.9rem; "
+                f"margin:10px 0 8px 0; text-transform:uppercase; letter-spacing:0.05em;'>"
                 f"Week {week} project: {project}</p>",
                 unsafe_allow_html=True,
             )
