@@ -19,3 +19,11 @@ __pycache__/
 
 # Environment Variables
 .env
+
+#Pages
+# pages/2_Dot_Product.py
+# pages/3_Matrices.py
+
+# #Core
+# core/day02_dot_product.py
+# core/day03_matrices.py
