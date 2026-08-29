@@ -100,16 +100,15 @@ with tab_deeper:
     with st.container(border=True):
         st.markdown("<h4>Foundational — start here</h4>", unsafe_allow_html=True)
         st.markdown(
-            "**Gilbert Strang, *Introduction to Linear Algebra* (6th ed.), Chapter 1: "
-            "Vectors and Linear Combinations.** Read sections 1.1 and 1.2, paired with "
-            "MIT OCW 18.06 Lecture 1, which covers the same material in 45 minutes "
-            "visually before you do the exercises."
+            "**Sheldon Axler, *Linear Algebra Done Right* (4th ed.).** The author recently "
+            "made this legendary textbook 100% open access. Pair Chapter 1 (Vector Spaces) "
+            "with **MIT OCW 18.06 Lecture 1**, which covers the same material in 45 minutes visually."
         )
         lb1, lb2 = st.columns(2)
         with lb1:
             st.link_button("Watch: MIT OCW 18.06", "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", use_container_width=True)
         with lb2:
-            st.link_button("Book site (Strang)", "https://math.mit.edu/~gs/linearalgebra/", use_container_width=True)
+            st.link_button("Free PDF (Axler)", "https://linear.axler.net/", use_container_width=True)
 
     with st.container(border=True):
         st.markdown("<h4>Applied to quant finance</h4>", unsafe_allow_html=True)
@@ -121,13 +120,13 @@ with tab_deeper:
         st.link_button("Watch on YouTube", "https://www.youtube.com/watch?v=fNk_zzaMoSs", use_container_width=True)
 
     with st.container(border=True):
-        st.markdown("<h4>Practitioner depth</h4>", unsafe_allow_html=True)
+        st.markdown("<h4>Practitioner depth (Open Source)</h4>", unsafe_allow_html=True)
         st.markdown(
-            "**Dan Stefanica, *A Linear Algebra Primer for Financial Engineering*, "
-            "Chapter 1.** Vectors and norms in a financial-engineering context, with "
-            "interview-style worked problems."
+            "**QuantEcon: *Linear Algebra in Python*.** A world-class, open-source project "
+            "sponsored by the Sloan Foundation. This lecture bridges the gap between pure math "
+            "and programmatic finance, showing you exactly how to code vectors and matrices using NumPy."
         )
-        st.link_button("View the book — fepress.org", "https://www.fepress.org/nla-primer/", use_container_width=True)
+        st.link_button("Read the QuantEcon Lecture", "https://python.quantecon.org/linear_algebra.html", use_container_width=True)
 
     st.markdown(
         f"<div class='concept-panel' style='border-color:{theme.QUANT_FINANCE}44;'>"
