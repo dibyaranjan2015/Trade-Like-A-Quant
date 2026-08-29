@@ -21,25 +21,12 @@ data = concept.content()
 mobile = is_mobile()
 
 # ---------------------------------------------------------------- top nav
-st.markdown("""
-<style>
-    /* Prevents columns from stacking vertically on mobile screens */
-    [data-testid="stHorizontalBlock"] {
-        flex-wrap: nowrap !important;
-    }
-    /* Ensures the buttons inside take up equal space */
-    [data-testid="stHorizontalBlock"] > div[data-testid="stColumn"] {
-        width: 50% !important;
-        min-width: 50% !important;
-    }
-</style>
-""", unsafe_allow_html=True)
 
 nav_left, nav_right = st.columns(2)
 with nav_left:
-    st.page_link("Home.py", label="All concepts")
+    st.page_link("Home.py", label="All concepts", width= "content")
 with nav_right:
-    st.page_link("Home.py", label="Next: Dot Product",disabled = True)
+    st.page_link("Home.py", label="Next: Dot Product",disabled = True, width= "content")
     # st.page_link("pages/2_Dot_Product.py", label="Next: Dot Product")
 
 # ---------------------------------------------------------------- header
