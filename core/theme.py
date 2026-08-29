@@ -341,10 +341,10 @@ def footer():
             <div class="footer-heading">Join the daily study</div>
             <div class="btn-container">
                 <a href="https://www.instagram.com/thefacelessquant" target="_blank" class="social-btn">
-                    <i class="fa-brands fa-instagram ig-icon"></i> Instagram
+                    <i class="fa-brands fa-instagram ig-icon"></i> thefacelessquant
                 </a>
                 <a href="https://www.linkedin.com/in/drs2015/" target="_blank" class="social-btn">
-                    <i class="fa-brands fa-linkedin li-icon"></i> LinkedIn
+                    <i class="fa-brands fa-linkedin li-icon"></i> drs2015
                 </a>
             </div>
             <div class="copyright">© 2026 TheFacelessQuant</div>
