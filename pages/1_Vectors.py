@@ -12,6 +12,7 @@ from core.day01_vectors import Vectors
 from core.device import is_mobile
 
 st.set_page_config(page_title="Vectors — ThefacelessQuant", page_icon="assets/fq.ico", layout="wide")
+theme.remove_streamlit_header()
 theme.inject_base_css()
 theme.render_sidebar_brand()
 
@@ -138,3 +139,4 @@ with tab_deeper:
 
 st.divider()
 st.page_link("Home.py", label="Back to all concepts")
+theme.footer()
