@@ -21,44 +21,57 @@ class DotProduct(QuantConcept):
 
     def content(self) -> dict:
         return {
-            "tagline": "One number that measures how closely two vectors point the same way.",
+            "tagline": "One calculation that tells you if two strategies are actually working together, or fighting each other.",
             "definition": (
-                "The dot product takes two vectors and returns a single number. "
-                "Multiply the vectors component by component and add the results — "
-                "that number tells you how much two vectors move together. A large "
-                "positive dot product means they point the same way; a value near "
-                "zero means they're unrelated; a negative value means they point "
-                "in opposite directions."
+                "The dot product takes two vectors and boils them down to a single "
+                "number that tells you how much they agree. Multiply the matching "
+                "pieces of each vector together and add them up: a big positive "
+                "result means the two are pointing the same way (your bets are "
+                "aligned), a result near zero means they have nothing to do with "
+                "each other, and a negative result means they're actually working "
+                "against each other."
             ),
             "formulas": [
-                ("Dot product, component form", r"\mathbf{v} \cdot \mathbf{u} = v_1 u_1 + v_2 u_2 + \cdots + v_n u_n"),
-                ("Dot product, geometric form", r"\mathbf{v} \cdot \mathbf{u} = \lVert \mathbf{v} \rVert\, \lVert \mathbf{u} \rVert \cos\theta"),
-                ("Angle between two vectors", r"\cos\theta = \frac{\mathbf{v} \cdot \mathbf{u}}{\lVert \mathbf{v} \rVert\, \lVert \mathbf{u} \rVert}"),
-                ("Projection of v onto u", r"\text{proj}_{\mathbf{u}}\,\mathbf{v} = \frac{\mathbf{v} \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert^2}\, \mathbf{u}"),
+                ("Dot product, component form (Ex: How much do your book and the benchmark actually agree, number by number?)",
+                 r"\mathbf{v} \cdot \mathbf{u} = v_1 u_1 + v_2 u_2 + \cdots + v_n u_n"),
+                ("Dot product, geometric form (Ex: Translating that agreement into an angle you can actually picture)",
+                 r"\mathbf{v} \cdot \mathbf{u} = \lVert \mathbf{v} \rVert\, \lVert \mathbf{u} \rVert \cos\theta"),
+                ("Angle between two vectors (Ex: Are you hugging the benchmark, or making a real bet against it?)",
+                 r"\cos\theta = \frac{\mathbf{v} \cdot \mathbf{u}}{\lVert \mathbf{v} \rVert\, \lVert \mathbf{u} \rVert}"),
+                ("Projection of v onto u (Ex: The part of your book that's really just the benchmark in disguise)",
+                 r"\text{proj}_{\mathbf{u}}\,\mathbf{v} = \frac{\mathbf{v} \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert^2}\, \mathbf{u}"),
             ],
             "example": [
-                ("text", "Say your book is tilted toward tech and financials — a vector "
-                          "v — while the benchmark you're measured against sits at a "
-                          "different weighting, u:"),
+                ("text", "Say your book is tilted toward tech and financials — that's "
+                          "a vector, v — while the benchmark you're measured against "
+                          "sits at a different weighting, u:"),
                 ("latex", r"v = [0.60,\ 0.30], \quad u = [0.40,\ 0.50]"),
                 ("text", "The dot product multiplies the matching weights and adds "
                           "them up:"),
                 ("latex", r"v \cdot u = (0.60)(0.40) + (0.30)(0.50) = 0.39"),
-                ("text", "Dividing by the two vectors' lengths turns that number "
-                          "into an angle:"),
+                ("text", "Divide that by the two vectors' lengths and it turns into "
+                          "something you can actually picture — an angle:"),
                 ("latex", r"\cos\theta = \frac{0.39}{\lVert v \rVert \lVert u \rVert} \approx 0.91 \ \Rightarrow\ \theta \approx 25^\circ"),
-                ("text", "Your book isn't identical to the benchmark, but it's "
+                ("text", "Your book isn't a carbon copy of the benchmark, but it's "
                           "pointing in a similar direction — a tight tracking error, "
-                          "not an active bet against it."),
+                          "not an active bet against it. That 25° is the number a "
+                          "portfolio manager would actually watch."),
             ],
             "application": (
-                "Cosine similarity between return vectors is exactly this calculation, "
-                "and it's how factor models measure how much a stock 'loads' onto a "
-                "factor, how tracking error against a benchmark gets quantified, and "
-                "how recommendation and clustering systems in quant research measure "
-                "similarity between assets. The projection formula is also the first "
-                "step toward least-squares regression, which shows up constantly from "
-                "here on."
+                "Every alignment question in quantitative finance reduces to a "
+                "dot product.</p>"
+                "<ul>"
+                "<li><strong>Tracking a benchmark</strong> = the angle between your "
+                "book and the index</li>"
+                "<li><strong>Factor exposure</strong> = the dot product between a "
+                "stock's returns and a factor's returns</li>"
+                "<li><strong>Signal strength</strong> = cosine similarity between a "
+                "predicted-return vector and what actually happened</li>"
+                "</ul>"
+                "<p><strong>The Bottom Line:</strong> Every correlation coefficient, "
+                "every beta, every \"how similar are these two strategies\" question "
+                "you'll ever ask as a quant is the dot product wearing a different "
+                "name."
             ),
         }
 
@@ -106,13 +119,13 @@ class DotProduct(QuantConcept):
                 mode="lines", line=dict(color=theme.TEXT_MUTED, width=1.5, dash="dot"),
                 showlegend=False,
             ))
-            arrow(vec_v[:2], theme.LINEAR_ALGEBRA, "v")
-            arrow(vec_u[:2], theme.QUANT_FINANCE, "u")
-            arrow(proj[:2], theme.PROBABILITY, "proj")
+            arrow(vec_v[:2], theme.LINEAR_ALGEBRA, "Your Book")
+            arrow(vec_u[:2], theme.QUANT_FINANCE, "Benchmark")
+            arrow(proj[:2], theme.PROBABILITY, "Projection")
 
             fig.update_layout(template="quant_dark",
-                               xaxis=dict(range=[-0.1, 1], title="Tech sector weight"),
-                               yaxis=dict(range=[-0.1, 1], title="Financials sector weight"))
+                               xaxis=dict(range=[-0.1, 1], title="Tech Sector Weight"),
+                               yaxis=dict(range=[-0.1, 1], title="Financials Sector Weight"))
         else:
             def arrow3d(vec, color, label):
                 fig.add_trace(go.Scatter3d(x=[0, vec[0]], y=[0, vec[1]], z=[0, vec[2] if len(vec) > 2 else 0],
@@ -121,8 +134,8 @@ class DotProduct(QuantConcept):
                                             marker=dict(size=3, color=color),
                                             text=["", label],
                                             textfont=dict(color=color, size=13)))
-            arrow3d(vec_v, theme.LINEAR_ALGEBRA, "v")
-            arrow3d(vec_u, theme.QUANT_FINANCE, "u")
+            arrow3d(vec_v, theme.LINEAR_ALGEBRA, "Your Book")
+            arrow3d(vec_u, theme.QUANT_FINANCE, "Benchmark")
             fig.update_layout(template="quant_dark", showlegend=False,
                                scene=dict(bgcolor="rgba(0,0,0,0)",
                                           xaxis=dict(range=[-0.1, 1], backgroundcolor="rgba(0,0,0,0)"),

@@ -17,6 +17,7 @@ def setup_page():
         layout="wide", 
         initial_sidebar_state="expanded",
     )
+    theme.remove_streamlit_header()
     theme.inject_base_css()
     theme.render_sidebar_brand()
 
@@ -66,7 +67,8 @@ def render_progress_metrics(completed_days: set, built_days: int):
 
     if streak == 0 and len(completed_days) == 0:
         st.markdown(
-            "<p style='color:#9ca3af; font-size:0.9rem;'>Pass a Day's Challenge quiz to start your streak.</p>",
+            "<p style='color:#9ca3af; font-size:0.9rem;'>Pass a Day's Challenge quiz to start your streak. "
+            "<i>Note: Progress is saved on this device - it is not sync to other device yet.</i></p>",
             unsafe_allow_html=True,
         )
 
@@ -141,16 +143,6 @@ def render_curriculum(completed_days: set, registry_by_day: dict):
         st.write("")
 
 
-def render_footer():
-    """Render the page footer details."""
-    st.divider()
-    st.markdown(
-        "<p style='color:#6b7280; font-size:0.85rem;'>"
-        "New concepts publish daily on Instagram, with the full build and weekly "
-        "projects on LinkedIn.</p>",
-        unsafe_allow_html=True,
-    )
-
 
 def main():
     setup_page()
@@ -164,7 +156,7 @@ def main():
     render_hero_section()
     render_progress_metrics(completed_days, built_days)
     render_curriculum(completed_days, registry_by_day)
-    render_footer()
+    theme.footer()
 
 
 if __name__ == "__main__":

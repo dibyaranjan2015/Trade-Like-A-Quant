@@ -278,3 +278,91 @@ def Home_page_setup():
         .check-mark { color: #f59e0b; margin-left: 8px; font-weight: bold;}
     </style>
         """, unsafe_allow_html=True)
+
+
+def footer():
+    import streamlit as st
+
+    # Custom HTML/CSS footer with FontAwesome icons
+    footer_html = """
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+        .footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(250, 250, 250, 0.1);
+        }
+        .footer-heading {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .btn-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(250, 250, 250, 0.2);
+            color: white !important;
+            text-decoration: none !important;
+            font-size: 0.9rem;
+            background-color: transparent;
+            transition: all 0.2s ease;
+        }
+        .social-btn:hover {
+            background-color: rgba(250, 250, 250, 0.1);
+            border-color: rgba(250, 250, 250, 0.4);
+        }
+        .ig-icon { 
+            color: #E1306C;
+            font-size: 1.1rem;
+        }
+        .li-icon { 
+            color: #0077b5;
+            font-size: 1.1rem;
+        }
+        .copyright {
+            font-size: 0.8rem;
+            color: rgba(250, 250, 250, 0.6);
+        }
+        </style>
+
+        <div class="footer">
+            <div class="footer-heading">Join the daily study</div>
+            <div class="btn-container">
+                <a href="https://www.instagram.com/thefacelessquant" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-instagram ig-icon"></i> Instagram
+                </a>
+                <a href="https://www.linkedin.com/in/drs2015/" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-linkedin li-icon"></i> LinkedIn
+                </a>
+            </div>
+            <div class="copyright">© 2026 TheFacelessQuant</div>
+        </div>
+        """
+
+        # Render the custom footer at the bottom of your app
+    st.markdown(footer_html, unsafe_allow_html=True)
+
+def remove_streamlit_header():
+    hide_streamlit_style = """
+    <style>
+        /* Hide the Streamlit footer */
+        footer {visibility: hidden;}
+        /* Hide the top-right hamburger menu (optional, but looks cleaner) */
+        #MainMenu {visibility: hidden;}
+        /* Less padding at the top for mobile devices */
+        .block-container {padding-top: 2rem;}
+    </style>
+    """
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
