@@ -108,7 +108,7 @@ with tab_deeper:
         with lb1:
             st.link_button("Watch: MIT OCW 18.06", "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", use_container_width=True)
         with lb2:
-            st.link_button("Free PDF (Axler)", "https://linear.axler.net/", use_container_width=True)
+            st.link_button("Free PDF (Axler)", "https://linear.axler.net/LADR4e.pdf", use_container_width=True)
 
     with st.container(border=True):
         st.markdown("<h4>Applied to quant finance</h4>", unsafe_allow_html=True)
