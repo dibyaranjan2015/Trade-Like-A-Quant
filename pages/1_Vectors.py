@@ -24,9 +24,9 @@ mobile = is_mobile()
 
 nav_left, nav_right = st.columns(2)
 with nav_left:
-    st.page_link("Home.py", label="All concepts", width= "stretch")
+    st.page_link("Home.py", label="All concepts")
 with nav_right:
-    st.page_link("Home.py", label="Next: Dot Product",disabled = True, width= "stretch")
+    st.page_link("Home.py", label="Next: Dot Product",disabled = True)
     # st.page_link("pages/2_Dot_Product.py", label="Next: Dot Product")
 
 # ---------------------------------------------------------------- header

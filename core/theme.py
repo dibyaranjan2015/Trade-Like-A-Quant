@@ -355,14 +355,23 @@ def footer():
     st.markdown(footer_html, unsafe_allow_html=True)
 
 def remove_streamlit_header():
-    hide_streamlit_style = """
-    <style>
-        /* Hide the Streamlit footer */
-        footer {visibility: hidden;}
-        /* Hide the top-right hamburger menu (optional, but looks cleaner) */
-        #MainMenu {visibility: hidden;}
-        /* Less padding at the top for mobile devices */
-        .block-container {padding-top: 2rem;}
-    </style>
-    """
-    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+    hide_st_style = """
+        <style>
+            /* Hide the top header (hamburger menu and top colored bar) */
+            [data-testid="stHeader"] {
+                display: none;
+            }
+            
+            /* Hide the default Streamlit footer */
+            footer {
+                visibility: hidden;
+            }
+            
+            /* Remove the empty space left at the top of the page */
+            .block-container {
+                padding-top: 2rem !important; 
+                padding-bottom: 2rem !important;
+            }
+        </style>
+        """
+    st.markdown(hide_st_style, unsafe_allow_html=True)
