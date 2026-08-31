@@ -25,10 +25,10 @@ class DotProduct(QuantConcept):
             "definition": (
                 "A dot product combines two vectors into one number to show if they are pointing the same way. "
                 "You just multiply their matching parts and add them up. A big positive number means they agree and moving in the same direction (similar to coorelation),"
-                "zero means they have nothing in common, and a negative number means they are going in opposite directions."
+                " zero means they have nothing in common, and a negative number means they are going in opposite directions."
             ),
             "formulas": [
-                ("Dot product, component form (Ex: How much do your book and the benchmark actually agree, number by number?)",
+                ("Dot product, component form (Ex: How much do your porfolio (trading book) and the benchmark actually agree, number by number?)",
                  r"\mathbf{v} \cdot \mathbf{u} = v_1 u_1 + v_2 u_2 + \cdots + v_n u_n"),
                 ("Dot product, geometric form (Ex: Translating that agreement into an angle you can actually picture)",
                  r"\mathbf{v} \cdot \mathbf{u} = \lVert \mathbf{v} \rVert\, \lVert \mathbf{u} \rVert \cos\theta"),
@@ -38,7 +38,7 @@ class DotProduct(QuantConcept):
                  r"\text{proj}_{\mathbf{u}}\,\mathbf{v} = \frac{\mathbf{v} \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert^2}\, \mathbf{u}"),
             ],
             "example": [
-                ("text", "Say your book is tilted toward tech and financials — that's "
+                ("text", "Say your portfolio is tilted toward tech and financials — that's "
                           "a vector, v — while the benchmark you're measured against "
                           "sits at a different weighting, u:"),
                 ("latex", r"v = [0.60,\ 0.30], \quad u = [0.40,\ 0.50]"),

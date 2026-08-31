@@ -53,8 +53,8 @@ with tab_learn:
 # ================================================================ TAB 2: PRACTICE
 with tab_practice:
     st.markdown(
-        f"<p style='color:{theme.TEXT_MUTED};'>Your PM wants to know how far your "
-        f"book has drifted from the benchmark. Tap a positioning:</p>",
+        f"<p style='color:{theme.TEXT_MUTED};'>Your Manager wants to know how far your "
+        f"portfolio has drifted from the benchmark. Tap a positioning:</p>",
         unsafe_allow_html=True,
     )
 
