@@ -362,10 +362,10 @@ def remove_streamlit_header():
                 display: none;
             }
             
-            # /* Hide the default Streamlit footer */
-            # footer {
-            #     visibility: hidden;
-            # }
+            /* Hide the default Streamlit footer */
+            footer {
+                visibility: hidden;
+            }
             
             /* Remove the empty space left at the top of the page */
             .block-container {
