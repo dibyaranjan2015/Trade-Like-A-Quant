@@ -23,8 +23,8 @@ class DotProduct(QuantConcept):
         return {
             "tagline": "One calculation that tells you if two strategies are actually working together, or fighting each other.",
             "definition": (
-                "A dot product combines two vectors into one number to show if they are pointing the same way."
-                "You just multiply their matching parts and add them up. A big positive number means they agree,"
+                "A dot product combines two vectors into one number to show if they are pointing the same way. "
+                "You just multiply their matching parts and add them up. A big positive number means they agree and moving in the same direction (similar to coorelation),"
                 "zero means they have nothing in common, and a negative number means they are going in opposite directions."
             ),
             "formulas": [
