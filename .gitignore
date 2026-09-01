@@ -21,8 +21,5 @@ __pycache__/
 .env
 
 #Pages
-pages/3_Matrices.py
 
 #Core
-
-core/day03_matrices.py
