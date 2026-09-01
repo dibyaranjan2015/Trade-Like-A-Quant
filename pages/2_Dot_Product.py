@@ -96,42 +96,44 @@ with tab_deeper:
     st.markdown("<h3>Go Deeper</h3>", unsafe_allow_html=True)
 
     with st.container(border=True):
-        st.markdown("<h4>Foundational — start here</h4>", unsafe_allow_html=True)
+        st.markdown("<h4>Fundamentals — start here</h4>", unsafe_allow_html=True)
         st.markdown(
-            "**Sheldon Axler, *Linear Algebra Done Right* (4th ed.), Chapter 6: "
-            "Inner Product Spaces.** This is the chapter where Axler formally "
-            "introduces the dot product (as a special case of an inner product) "
-            "and proves the Cauchy-Schwarz inequality that makes cos θ always "
-            "land between -1 and 1. Pair it with **MIT OCW 18.06 Lecture 1**, "
-            "which covers the same ground visually with coordinates and pictures."
+            "**MIT OpenCourseWare 18.06, Lecture 1 (Gilbert Strang).** Strang "
+            "covers dot products and lengths in the second half of this same "
+            "lecture — the same free video as Day 1, just watch through to the end."
         )
-        lb1, lb2 = st.columns(2)
-        with lb1:
-            st.link_button("Watch: MIT OCW 18.06", "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", use_container_width=True)
-        with lb2:
-            st.link_button("Free PDF (Axler)", "https://linear.axler.net/LADR4e.pdf", use_container_width=True)
+        st.link_button("Watch: MIT OCW 18.06, Lecture 1", "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", use_container_width=True)
 
     with st.container(border=True):
-        st.markdown("<h4>Applied to quant finance</h4>", unsafe_allow_html=True)
+        st.markdown("<h4>Learn by doing — blog & code</h4>", unsafe_allow_html=True)
         st.markdown(
-            "**3Blue1Brown, *Essence of Linear Algebra* — Episode 9: Dot Products "
-            "and Duality** (YouTube, free). Explains why the algebraic and "
-            "geometric forms of the dot product are the same number — the "
-            "projection interpretation the formula alone doesn't make obvious."
+            "**Kalid Azad, *Vector Calculus: Understanding the Dot Product* "
+            "(BetterExplained).** Frames the dot product as \"directional "
+            "multiplication\" — how much one vector's push shows up in another's "
+            "direction. No proofs. This is the article that makes cos θ click."
         )
-        st.link_button("Watch on YouTube", "https://www.youtube.com/watch?v=LyGKycYT2v0", use_container_width=True)
+        st.link_button("Read the article", "https://betterexplained.com/articles/vector-calculus-understanding-the-dot-product/", use_container_width=True)
 
     with st.container(border=True):
-        st.markdown("<h4>Practitioner depth</h4>", unsafe_allow_html=True)
+        st.markdown("<h4>Open-source book — when you want more</h4>", unsafe_allow_html=True)
         st.markdown(
-            "**QuantEcon: *Orthogonal Projections and Their Applications*.** "
-            "A free, open-source lecture from the same Sloan Foundation-sponsored "
-            "project as Day 1's resource. It opens with exactly today's formula — "
-            "the law of cosines and the definition of orthogonality — then shows "
-            "you how real quant systems use projection to build least-squares "
-            "predictions in Python."
+            "**Immersive Linear Algebra (Ström, Åström & Akenine-Möller).** Free "
+            "and interactive — Chapter 2 covers exactly today's topic: \"a powerful "
+            "tool that takes two vectors and produces a scalar.\" Drag the vectors "
+            "yourself and watch the dot product and the angle update live."
         )
-        st.link_button("Read the QuantEcon Lecture", "https://python-advanced.quantecon.org/orth_proj.html", use_container_width=True)
+        st.link_button("Open the book", "https://immersivemath.com/ila/ch02_vectors/ch02.html", use_container_width=True)
+
+    with st.container(border=True):
+
+        st.markdown("<h4>Python code — implement it yourself</h4>", unsafe_allow_html=True)
+        st.markdown(
+            "**Real Python, *Linear Algebra in Python*.** Look for the section "
+            "where they use the dot product to predict a car's price from a "
+            "vector of features — a real, working example of exactly what you "
+            "just computed above, using `numpy.dot()` or the `@` operator."
+        )
+        st.link_button("Read the tutorial", "https://realpython.com/python-linear-algebra/", use_container_width=True)
 
     st.markdown(
         f"<div class='concept-panel' style='border-color:{theme.QUANT_FINANCE}44;'>"

@@ -100,35 +100,43 @@ with tab_deeper:
     st.markdown("<h3>Go Deeper</h3>", unsafe_allow_html=True)
 
     with st.container(border=True):
-        st.markdown("<h4>Foundational — start here</h4>", unsafe_allow_html=True)
+        st.markdown("<h4>Fundamentals — start here</h4>", unsafe_allow_html=True)
         st.markdown(
-            "**Sheldon Axler, *Linear Algebra Done Right* (4th ed.).** The author recently "
-            "made this legendary textbook 100% open access. Pair Chapter 1 (Vector Spaces) "
-            "with **MIT OCW 18.06 Lecture 1**, which covers the same material in 45 minutes visually."
+            "**MIT OpenCourseWare 18.06, Lecture 1 (Gilbert Strang).** Free video, "
+            "45 minutes. Strang introduces vectors visually before any formal "
+            "proof — this is the right place to start, no textbook required yet."
         )
-        lb1, lb2 = st.columns(2)
-        with lb1:
-            st.link_button("Watch: MIT OCW 18.06", "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", use_container_width=True)
-        with lb2:
-            st.link_button("Free PDF (Axler)", "https://linear.axler.net/LADR4e.pdf", use_container_width=True)
+        st.link_button("Watch: MIT OCW 18.06, Lecture 1", "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", use_container_width=True)
 
     with st.container(border=True):
-        st.markdown("<h4>Applied to quant finance</h4>", unsafe_allow_html=True)
+        st.markdown("<h4>Learn by doing — blog & code</h4>", unsafe_allow_html=True)
         st.markdown(
-            "**3Blue1Brown, *Essence of Linear Algebra* — Episode 1: Vectors** "
-            "(YouTube, free, 9 minutes). Watch before reading Strang's chapter — the "
-            "geometric interpretation makes the portfolio-weight reading click faster."
+            "**Kalid Azad, *An Intuitive Guide to Linear Algebra* (BetterExplained).** "
+            "No proofs, no jargon — just plain-English analogies. It literally walks "
+            "through a stock portfolio example (Apple, Google, Microsoft) to explain "
+            "what a vector actually is, which is exactly today's Practice tab."
         )
-        st.link_button("Watch on YouTube", "https://www.youtube.com/watch?v=fNk_zzaMoSs", use_container_width=True)
+        st.link_button("Read the article", "https://betterexplained.com/articles/linear-algebra-guide/", use_container_width=True)
 
     with st.container(border=True):
-        st.markdown("<h4>Practitioner depth (Open Source)</h4>", unsafe_allow_html=True)
+        st.markdown("<h4>Open-source book — when you want more</h4>", unsafe_allow_html=True)
         st.markdown(
-            "**QuantEcon: *Linear Algebra in Python*.** A world-class, open-source project "
-            "sponsored by the Sloan Foundation. This lecture bridges the gap between pure math "
-            "and programmatic finance, showing you exactly how to code vectors and matrices using NumPy."
+            "**Immersive Linear Algebra (Ström, Åström & Akenine-Möller).** A completely "
+            "free, interactive online textbook — every diagram is something you can "
+            "drag and manipulate yourself. Start with Chapter 1: Vectors. Built "
+            "specifically to be gentler than a standard printed textbook."
         )
-        st.link_button("Read the QuantEcon Lecture", "https://python.quantecon.org/linear_algebra.html", use_container_width=True)
+        st.link_button("Open Chapter 1: Vectors", "https://immersivemath.com/ila/ch02_vectors/ch02.html", use_container_width=True)
+        
+    with st.container(border=True):
+        st.markdown("<h4>Python code — implement it yourself</h4>", unsafe_allow_html=True)
+        st.markdown(
+            "**Real Python, *Linear Algebra in Python*.** Skip straight to the "
+            "\"Creating Arrays\" and \"Vectors, Matrices, and the Dot Product\" "
+            "sections — real NumPy code, no theory detour, showing you exactly how "
+            "to build the vector you just made in the Practice tab above."
+        )
+        st.link_button("Read the tutorial", "https://realpython.com/python-linear-algebra/", use_container_width=True)
 
     st.markdown(
         f"<div class='concept-panel' style='border-color:{theme.QUANT_FINANCE}44;'>"
