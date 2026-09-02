@@ -1,9 +1,3 @@
-"""
-pages/3_Matrices.py
-Day 3 — Matrices & Matrix Operations. UI only; math in core/day03_matrices.py.
-Matches the finalized pages/1_Vectors.py and pages/2_Dot_Product.py pattern.
-"""
-
 import streamlit as st
 
 from core import theme, lesson_ui, progress

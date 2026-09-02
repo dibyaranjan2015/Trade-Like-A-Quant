@@ -1,11 +1,3 @@
-"""
-core/device.py
-Detects the visitor's viewport width so pages can render a genuinely different
-layout for desktop vs mobile — not just CSS reflow, but different Python-level
-decisions (column counts, default chart height, which controls are grouped
-together). Falls back to a sane default if JS hasn't reported back yet.
-"""
-
 import streamlit as st
 
 try:

@@ -1,11 +1,3 @@
-"""
-core/base.py
-Shared interface for every daily QuantConcept class. content() replaces the
-old single-paragraph explain() — it returns separate sections (definition,
-formulas, worked example, real-world use) so each page can render them as
-distinct, well-typeset panels instead of a wall of text.
-"""
-
 from abc import ABC, abstractmethod
 
 

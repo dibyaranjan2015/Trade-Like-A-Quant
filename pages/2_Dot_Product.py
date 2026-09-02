@@ -1,10 +1,3 @@
-"""
-pages/2_Dot_Product.py
-Day 2 — Dot Product & Geometry. UI only; math in core/day02_dot_product.py.
-Matches the finalized pages/1_Vectors.py pattern: wide Learn column, single
-visualization mode (no 2D/3D toggle), tap-first presets, open-access Go Deeper.
-"""
-
 import streamlit as st
 
 from core import theme, lesson_ui, progress

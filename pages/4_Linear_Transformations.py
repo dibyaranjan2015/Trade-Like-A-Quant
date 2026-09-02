@@ -1,9 +1,3 @@
-"""
-pages/4_Linear_Transformations.py
-Day 4 — Linear Transformations. UI only; math in core/day04_linear_transformations.py.
-Matches the finalized Days 1-3 pattern exactly.
-"""
-
 import streamlit as st
 
 from core import theme, lesson_ui, progress

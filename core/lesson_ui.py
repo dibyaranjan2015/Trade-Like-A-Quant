@@ -1,10 +1,3 @@
-"""
-core/lesson_ui.py
-Shared interactive components so every day's page is built from the same
-three moves instead of a hand-written wall of text: a paced Learn flow, a
-tap-first Practice picker, and a Challenge quiz. Reused by every pages/*.py.
-"""
-
 import streamlit as st
 
 from core import theme, progress

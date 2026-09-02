@@ -1,9 +1,3 @@
-"""
-core/registry.py
-Single source of truth for which days exist and which page they live on.
-Add one line here each day you ship a new page — Home.py reads this list.
-"""
-
 from core.day01_vectors import Vectors
 from core.day02_dot_product import DotProduct
 from core.day03_matrices import Matrices

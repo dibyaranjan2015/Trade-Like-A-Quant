@@ -1,10 +1,3 @@
-"""
-pages/1_Vectors.py
-Day 1 — Vectors & Vector Operations. UI only; math in core/day01_vectors.py.
-Four-tab interactive format: Learn (paced), Practice (tap-first), Challenge
-(quiz + streak), Go Deeper.
-"""
-
 import streamlit as st
 
 from core import theme, lesson_ui, progress
@@ -127,7 +120,7 @@ with tab_deeper:
             "specifically to be gentler than a standard printed textbook."
         )
         st.link_button("Open Chapter 1: Vectors", "https://immersivemath.com/ila/ch02_vectors/ch02.html", use_container_width=True)
-        
+
     with st.container(border=True):
         st.markdown("<h4>Python code — implement it yourself</h4>", unsafe_allow_html=True)
         st.markdown(

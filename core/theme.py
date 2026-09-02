@@ -1,10 +1,3 @@
-"""
-core/theme.py
-Shared visual identity for every page: color system, typography, Plotly
-template, and the CSS that gives the site an actual design instead of
-default-Streamlit gray boxes.
-"""
-
 import plotly.graph_objects as go
 import plotly.io as pio
 import streamlit as st
