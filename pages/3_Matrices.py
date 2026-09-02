@@ -23,8 +23,8 @@ nav_left, nav_right = st.columns(2)
 with nav_left:
     st.page_link("pages/2_Dot_Product.py", label="Back: Dot Product")
 with nav_right:
-    st.page_link("Home.py", label="Next: Linear Transformations")
-    # st.page_link("pages/4_Linear_Transformations.py", label="Next: Linear Transformations")
+    # st.page_link("Home.py", label="Next: Linear Transformations")
+    st.page_link("pages/4_Linear_Transformations.py", label="Next: Linear Transformations")
 
 # ---------------------------------------------------------------- header
 completed = progress.get_completed_days()
