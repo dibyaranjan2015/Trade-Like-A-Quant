@@ -1,18 +1,3 @@
-"""
-core/progress.py
-Tracks which days a visitor has completed (passed the Challenge quiz) and
-their current streak, persisted via browser cookie so it survives closing
-the tab — no login system required.
-
-Honest limitation: this is per-browser, not per-account. Clearing cookies
-or switching devices resets it. That's an acceptable trade-off for a
-public, no-signup learning app; if accounts are ever added, swap this
-module's storage for a real per-user database and keep the same functions.
-
-Requires: streamlit-cookies-controller (see requirements.txt). Falls back
-to session-only tracking (resets on tab close) if the package isn't
-installed, so the app never breaks — it just loses persistence.
-"""
 
 import json
 

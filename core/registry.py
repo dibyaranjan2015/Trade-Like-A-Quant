@@ -2,6 +2,7 @@ from core.day01_vectors import Vectors
 from core.day02_dot_product import DotProduct
 from core.day03_matrices import Matrices
 from core.day04_linear_transformations import LinearTransformations
+from core.day05_linear_systems import LinearSystems
 
 # (day_number, concept_instance, page_path)
 REGISTRY = [
@@ -9,6 +10,8 @@ REGISTRY = [
     (2, DotProduct(), "pages/2_Dot_Product.py"),
     (3, Matrices(), "pages/3_Matrices.py"),
     (4, LinearTransformations(), "pages/4_Linear_Transformations.py"),
+    (5, LinearSystems(), "pages/5_Linear_Systems.py")
+
 ]
 
 

@@ -17,7 +17,7 @@ nav_left, nav_right = st.columns(2)
 with nav_left:
     st.page_link("pages/3_Matrices.py", label="Back: Matrices")
 with nav_right:
-    st.page_link("Home.py", label="Next: Linear Systems", disabled=True)
+    st.page_link("pages/5_Linear_Systems.py", label="Next: Linear Systems", disabled=True)
 
 # ---------------------------------------------------------------- header
 completed = progress.get_completed_days()
