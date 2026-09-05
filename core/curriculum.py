@@ -45,7 +45,7 @@ FULL_CURRICULUM = [
 ]
 
 WEEKLY_PROJECTS = {
-    1: "Linear Algebra Toolkit",
+    1: "Build Your First Quant Portfolio",
     2: "Portfolio Optimizer (Markowitz)",
     3: "Calculus Toolkit",
     4: "Risk Model Engine",
@@ -55,6 +55,9 @@ WEEKLY_PROJECTS = {
     8: "Capstone: Full Quant Research Dashboard",
 }
 
+PROJECT_PAGES = {
+    1: "pages/Week1_Project.py",
+}
 
 def by_pillar():
     """Returns an ordered dict-like list of (pillar, [entries]) preserving

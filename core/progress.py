@@ -1,4 +1,3 @@
-
 import json
 
 import streamlit as st
@@ -10,6 +9,7 @@ except ImportError:
     _HAS_COOKIES = False
 
 COOKIE_KEY = "tfq_completed_days"
+PROJECT_COOKIE_KEY = "tfq_completed_projects"
 
 
 def _controller():
@@ -49,3 +49,24 @@ def current_streak(completed: set = None) -> int:
         streak += 1
         day -= 1
     return streak
+
+
+def get_completed_projects() -> set:
+    """Which weekly capstone projects (by week number) a visitor has finished."""
+    if _HAS_COOKIES:
+        controller = _controller()
+        raw = controller.get(PROJECT_COOKIE_KEY)
+        try:
+            return set(json.loads(raw)) if raw else set()
+        except (TypeError, ValueError):
+            return set()
+    return st.session_state.setdefault("_completed_projects_fallback", set())
+
+
+def mark_project_complete(week: int):
+    completed = get_completed_projects()
+    completed.add(week)
+    if _HAS_COOKIES:
+        _controller().set(PROJECT_COOKIE_KEY, json.dumps(sorted(completed)))
+    else:
+        st.session_state["_completed_projects_fallback"] = completed
